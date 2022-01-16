@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GaugeModule } from 'angular-gauge';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ButtonModule,
+    FormsModule,
+    HttpClientModule,
+    GaugeModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

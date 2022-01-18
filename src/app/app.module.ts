@@ -10,11 +10,14 @@ import { GaugeModule } from 'angular-gauge';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardModule } from 'primeng/card';
+import { CardComponent } from './components/card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    HomeComponent
+    HomeComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     GaugeModule.forRoot(),
     DropdownModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

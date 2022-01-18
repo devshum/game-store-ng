@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Param } from 'src/app/core/models/filters.interface';
-import { ParamsLabels } from 'src/app/core/enums/params.labels';
-import { ParamsValues } from 'src/app/core/enums/params.values';
+import { Param, simpleFilterOptions } from 'src/app/core/models/filters.interface';
+import { SelectItem } from 'primeng/api';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,20 +9,11 @@ import { ParamsValues } from 'src/app/core/enums/params.values';
 })
 
 export class HomeComponent implements OnInit {
-  parameters: Param[];
+  parameters: SelectItem[];
   selectedParam: Param;
 
   constructor() {
-    this.parameters  = [
-      { label: ParamsLabels.sort, value: null },
-      { label: ParamsLabels.name, value: ParamsValues.name },
-      { label: ParamsLabels.released, value: ParamsValues.released },
-      { label: ParamsLabels.added, value: ParamsValues.added },
-      { label: ParamsLabels.created, value: ParamsValues.created },
-      { label: ParamsLabels.updated, value: ParamsValues.updated },
-      { label: ParamsLabels.rating,  value: ParamsValues.rating },
-      { label: ParamsLabels.metacritic, value: ParamsValues.metacritic }
-    ];
+    this.parameters = simpleFilterOptions;
   }
 
   ngOnInit(): void {

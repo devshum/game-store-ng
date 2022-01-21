@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Game } from 'src/app/core/models/game.interface';
 
 @Component({
   selector: 'app-card',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent  {
-
+  @Input() game: Game;
   constructor() { }
 
 }

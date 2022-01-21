@@ -3,6 +3,7 @@ import { Param, simpleFilterOptions } from 'src/app/core/models/filters.interfac
 import { SelectItem } from 'primeng/api';
 import { GamesService } from 'src/app/core/services/games.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Game } from 'src/app/core/models/game.interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +13,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class HomeComponent implements OnInit {
   parameters: SelectItem[];
   selectedParam: Param;
-  games: any;
+  games: Game[];
 
   constructor(
     private _gamesService: GamesService,

@@ -5,6 +5,8 @@ export interface Game {
   metacriticUrl: string;
   website: string;
   description: string;
+  slug: string;
+  tags: tag[];
   metacritic: number;
   genres: Genre[];
   parentPlatforms: ParentPlatform[];
@@ -36,6 +38,10 @@ interface Rating {
 
 interface Screenshot {
   image: string;
+}
+
+interface tag {
+  name: string;
 }
 
 interface Trailer {

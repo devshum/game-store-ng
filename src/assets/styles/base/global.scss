@@ -1,3 +1,5 @@
+@use '../../styles/abstracts/variables.scss' as styles;
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +17,9 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.6rem;
-  color: #333;
+  font-weight: 400;
+  color: styles.$gray-10;
+  border-bottom: 0.8rem solid #748ffc;
 }

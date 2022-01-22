@@ -1,19 +1,31 @@
 <article class="card">
+  <div class="card__image-box"
+       [class.no-image]="!game.background_image">
+    <img *ngIf="game.background_image"
+         [alt]="'Image of a game ' + game.name" 
+         [src]="game.background_image"
+         class="card__image">
 
-  <div class="card__image">
-    <img [alt]="'Image of a game ' + game.name" 
-           [src]="game.background_image">
-
-      <p *ngIf="!game.background_image">
-        no image
-      </p>
+    <span *ngIf="!game.background_image">The image haven't uploaded yet 😥</span>
   </div>
 
-  <h3 class="card__title">{{ game.name }}</h3>
+  <div class="card__content">
+    <h3 class="card__title">{{ game.name }}</h3>
 
-  <div class="card__subtitle">{{ game.released }}</div>
+    <p class="card__subtitle">Released: {{ game.released }}</p>
 
-  <div class="card__tags">
-    <p *ngFor="let tag of game.tags">{{ tag.name }}</p>
+    <div class="card__tags">
+      <ng-container *ngIf="game.tags.length">
+        <span class="card__tags-item" *ngFor="let tag of game.tags.slice(0, 3)">{{ tag.name }}</span>
+      </ng-container>
+
+      <span *ngIf="!game.tags.length" class="card__tags-item">adventure</span>
+    </div>
+
+    <ul class="card__platform">
+      <li class="card__platform-item" *ngFor="let platform of game.parent_platforms">
+        <i class="card__platform-icon" [inlineSVG]="platform.platform.slug + '.svg'"></i>
+      </li>
+    </ul>
   </div>
 </article>

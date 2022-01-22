@@ -9,7 +9,7 @@ export interface Game {
   tags: tag[];
   metacritic: number;
   genres: Genre[];
-  parentPlatforms: ParentPlatform[];
+  parent_platforms: ParentPlatform[];
   publishers: Publisher[];
   ratings: Rating[];
   screenshots: Screenshot[];
@@ -22,7 +22,7 @@ interface Genre {
 
 interface ParentPlatform {
   platform: {
-    name: string;
+    slug: string;
   };
 }
 

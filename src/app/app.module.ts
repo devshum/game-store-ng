@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardModule } from 'primeng/card';
 import { CardComponent } from './components/card/card.component';
+import { InlineSVGModule } from 'ng-inline-svg-2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { CardComponent } from './components/card/card.component';
     GaugeModule.forRoot(),
     DropdownModule,
     BrowserAnimationsModule,
-    CardModule
+    CardModule,
+    InlineSVGModule.forRoot({ baseUrl: '/assets/icons/', bypassHttpClientInterceptorChain: true })
   ],
   providers: [
     {

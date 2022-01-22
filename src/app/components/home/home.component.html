@@ -1,13 +1,15 @@
-<p-dropdown [options]="parameters" 
+<section>
+  <p-dropdown [options]="parameters" 
             [(ngModel)]="selectedParam" 
             optionLabel="label"></p-dropdown>
 
 
-<div *ngIf="games !== undefined" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
-  <app-card [game]="game" 
-            *ngFor="let game of games">
-  </app-card>
-</div>
+  <div class="container" *ngIf="games !== undefined" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+    <app-card [game]="game" 
+              *ngFor="let game of games">
+    </app-card>
+  </div>
+</section>
 
 
 

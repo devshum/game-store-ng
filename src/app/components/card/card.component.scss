@@ -5,12 +5,14 @@
 }
 
 .card {
+  display: grid;
+  grid-template-rows: 22rem auto;
   overflow: hidden;
   border-radius: 1.2rem;
   box-shadow: 0 2rem 3rem 0 rgba(styles.$black, 0.05);
+  height: 100%;
 
   &__image-box {
-    height: 22rem;
     position: relative;
 
     &.no-image {
@@ -42,31 +44,45 @@
   }
 
   &__content {
-    padding: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.4rem;
+  }
+
+  &__title {
+    text-overflow: ellipsis;
+    width: 30rem;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
   }
 
   &__subtitle {
     font-size: 1.4rem;
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.6rem;
     color: #868e96;
   }
 
   &__tags {
     display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.6rem;
   }
 
   &__tags-item {
     background-color: #4f6678;
     color: #edf0f2;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     padding: 0.4rem;
 
-    &:not(:last-child) {
-      margin-right: 0.4rem;
-    }
+    margin: 0 0.4rem 0.4rem 0;
   }
 
-  &__platform-item {
+  &__platforms {
+    margin-top: auto;
+  }
+
+  &__platforms-item {
     display: inline-flex;
     align-items: center;
     justify-content: center;

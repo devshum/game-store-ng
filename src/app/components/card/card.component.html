@@ -22,9 +22,9 @@
       <span *ngIf="!game.tags.length" class="card__tags-item">adventure</span>
     </div>
 
-    <ul class="card__platform">
-      <li class="card__platform-item" *ngFor="let platform of game.parent_platforms">
-        <i class="card__platform-icon" [inlineSVG]="platform.platform.slug + '.svg'"></i>
+    <ul class="card__platforms">
+      <li class="card__platforms-item" *ngFor="let platform of game.parent_platforms.slice(0, 9)">
+        <i class="card__platforms-icon" [inlineSVG]="platform.platform.slug + '.svg'"></i>
       </li>
     </ul>
   </div>

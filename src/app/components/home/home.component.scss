@@ -1,3 +1,15 @@
+@use '../../../assets/styles/abstracts/variables.scss' as styles;
+
 :host {
   display: block;
+}
+
+.home {
+  background: linear-gradient(to bottom, styles.$gray-dark-40, styles.$gray-dark-15);
+
+  &__wrapper {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 3.2rem;
+  }
 }

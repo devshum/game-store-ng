@@ -17,9 +17,9 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: styles.$font-inter;
   font-size: 1.6rem;
   font-weight: 400;
-  color: styles.$gray-10;
+  color: styles.$gray-dark-35;
   border-bottom: 0.8rem solid #748ffc;
 }

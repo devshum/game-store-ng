@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   parameters: SelectItem[];
   selectedParam: Param;
   games: Game[];
+  count: number;
 
   constructor(
     private _gamesService: GamesService,
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit {
       .getGames(sort, search)
       .subscribe(data => {
         this.games = data.results;
+        this.count = data.count;
     });
   }
 }

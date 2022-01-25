@@ -1,0 +1,11 @@
+@use '../../../styles/abstracts/variables.scss' as styles;
+
+.dropdown {
+  .p-dropdown {
+    background: styles.$gray-light-25;
+
+    &-label {
+      color: styles.$gray-dark-5;
+    }
+  }
+}

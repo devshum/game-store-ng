@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Param, simpleFilterOptions } from 'src/app/core/models/filters.interface';
+import { simpleFilterOptions } from 'src/app/core/models/filters.interface';
 import { SelectItem } from 'primeng/api';
 import { GamesService } from 'src/app/core/services/games.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -12,7 +12,7 @@ import { Game } from 'src/app/core/models/game.interface';
 
 export class HomeComponent implements OnInit {
   parameters: SelectItem[];
-  selectedParam: Param;
+  selectedParamValue: string;
   games: Game[];
   count: number;
 
@@ -35,10 +35,10 @@ export class HomeComponent implements OnInit {
 
   searchGames(sort: string, search?: string): void {
     this._gamesService
-      .getGames(sort, search)
-      .subscribe(data => {
-        this.games = data.results;
-        this.count = data.count;
+    .getGames(sort, search)
+    .subscribe(data => {
+      this.games = data.results;
+      this.count = data.count;
     });
   }
 }

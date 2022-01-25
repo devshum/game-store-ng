@@ -6,8 +6,11 @@
       <span class="home__header-title">Found<span>{{ count }}</span>games</span>
 
       <p-dropdown [options]="parameters" 
-                  [(ngModel)]="selectedParam" 
-                  optionLabel="label"></p-dropdown>
+                  [(ngModel)]="selectedParamValue" 
+                  optionLabel="label"
+                  optionValue="value"
+                  (onChange)="searchGames(selectedParamValue)"
+                  class="dropdown"></p-dropdown>
     </header>
 
     <div class="home__wrapper" *ngIf="games !== undefined">

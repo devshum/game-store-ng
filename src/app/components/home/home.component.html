@@ -1,9 +1,14 @@
 <section class="home">
   <div class="container">
-    <p-dropdown [options]="parameters" 
-            [(ngModel)]="selectedParam" 
-            optionLabel="label"></p-dropdown>
+    <h1 class="home__heading h1">Games data base</h1>
 
+    <header class="home__header">
+      <span class="home__header-title">Found<span>{{ count }}</span>games</span>
+
+      <p-dropdown [options]="parameters" 
+                  [(ngModel)]="selectedParam" 
+                  optionLabel="label"></p-dropdown>
+    </header>
 
     <div class="home__wrapper" *ngIf="games !== undefined">
       <app-card [game]="game" 

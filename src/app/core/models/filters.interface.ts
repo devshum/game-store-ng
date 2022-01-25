@@ -12,7 +12,3 @@ export const simpleFilterOptions: SelectItem[] = [
   { label: ParamsLabels.updated, value: ParamsValues.updated },
   { label: ParamsLabels.rating,  value: ParamsValues.rating },
 ];
-export interface Param {
-  label: string;
-  value: string | null;
-}

@@ -1,4 +1,4 @@
-<article class="card">
+<article class="card" (click)="openGameDetails(game.id)">
   <div class="card__image-box"
        [class.no-image]="!game.background_image">
     <img *ngIf="game.background_image"
@@ -12,15 +12,15 @@
   <div class="card__content">
     <h3 class="card__title">{{ game.name }}</h3>
 
-    <p class="card__subtitle">Released: {{ game.released }}</p>
+    <span class="card__subtitle">Released: {{ game.released }}</span>
 
-    <div class="card__tags">
+    <ul class="card__tags">
       <ng-container *ngIf="game.tags.length">
-        <span class="card__tags-item" *ngFor="let tag of game.tags.slice(0, 3)">{{ tag.name }}</span>
+        <li class="card__tags-item" *ngFor="let tag of game.tags.slice(0, 3)">{{ tag.name }}</li>
       </ng-container>
 
-      <span *ngIf="!game.tags.length" class="card__tags-item">adventure</span>
-    </div>
+      <li *ngIf="!game.tags.length" class="card__tags-item">adventure</li>
+    </ul>
 
     <ul class="card__platforms">
       <li class="card__platforms-item" *ngFor="let platform of game.parent_platforms.slice(0, 9)">

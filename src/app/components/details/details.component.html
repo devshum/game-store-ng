@@ -1,0 +1,33 @@
+<section class="details">
+  <div class="container">
+    <div class="details__image-box">
+      <img src="https://www.gtabase.com/images/gta-4/gta-iv-banner.jpg" alt="background image" class="details__img">
+    </div>
+  
+    <div class="details__content">
+      <h1 class="details__content-header">Game name</h1>
+      <span class="details__content-released">Released: 01.02.2022</span>
+      <ul class="details__content-genres">
+        <li>RPG</li>
+      </ul>
+    </div>
+
+    <div class="details__gauge">
+      <mwl-gauge
+        class="two"
+        [max]="100"
+        [dialStartAngle]="180"
+        [dialEndAngle]="0"
+        [value]="gameRating"
+        [animated]="true"
+        [color]="getColor"
+        [animationDuration]="2"
+      >
+        
+      </mwl-gauge>
+
+      <a href="#" target="_blank" class="details__label">Metacritic</a>
+    </div>
+    <!-- tabs -->
+  </div>
+</section>

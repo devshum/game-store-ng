@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Game } from 'src/app/core/models/game.interface';
 
 @Component({
@@ -8,6 +9,9 @@ import { Game } from 'src/app/core/models/game.interface';
 })
 export class CardComponent  {
   @Input() game: Game;
-  constructor() { }
+  constructor(private _router: Router) { }
 
+  openGameDetails(id: string): void {
+    this._router.navigate(['details', id]);
+  }
 }

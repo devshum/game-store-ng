@@ -1,14 +1,15 @@
-<section class="details">
+<section class="details" *ngIf="game !== undefined">
   <div class="container">
     <div class="details__image-box">
-      <img src="https://www.gtabase.com/images/gta-4/gta-iv-banner.jpg" alt="background image" class="details__img">
+      <img [src]="game.background_image" alt="background image" class="details__img">
     </div>
   
     <div class="details__content">
-      <h1 class="details__content-header">Game name</h1>
-      <span class="details__content-released">Released: 01.02.2022</span>
+      <h1 class="details__content-header">{{ game.name }}</h1>
+      <span class="details__content-released">{{ game.released | date }}</span>
+      <p class="details__content-description">{{ game.description_raw }}</p>
       <ul class="details__content-genres">
-        <li>RPG</li>
+        <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
       </ul>
     </div>
 
@@ -26,7 +27,9 @@
         
       </mwl-gauge>
 
-      <a href="#" target="_blank" class="details__label">Metacritic</a>
+      <a [href]="game.metacritic_url" target="_blank" class="details__label">Metacritic</a>
+
+      {{ game.metacritic_url | json }}
     </div>
     <!-- tabs -->
   </div>

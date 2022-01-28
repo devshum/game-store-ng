@@ -12,7 +12,7 @@
   <div class="card__content">
     <h3 class="card__title">{{ game.name }}</h3>
 
-    <span class="card__subtitle">Released: {{ game.released }}</span>
+    <span class="card__subtitle">Released: {{ game.released | date }}</span>
 
     <ul class="card__tags">
       <ng-container *ngIf="game.tags.length">

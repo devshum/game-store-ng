@@ -3,7 +3,8 @@ export interface Game {
   background_image: string;
   name: string;
   released: string;
-  metacriticUrl: string;
+  metacritic_url: string;
+  description_raw: string;
   website: string;
   description: string;
   slug: string;

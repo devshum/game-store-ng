@@ -1,6 +1,6 @@
 import { GamesService } from 'src/app/core/services/games.service';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Game } from 'src/app/core/models/game.interface';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -10,7 +10,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy {
   gameRating = 0;
   gameId: string;
   game: Game;
@@ -31,23 +31,30 @@ export class DetailsComponent implements OnInit {
   getGameDetails(id: string): void {
     this.gameSub = this._gamesService.getGameDetails(id).subscribe((data: Game) => {
       this.game = data;
-
-      setTimeout(() => {
-        this.gameRating = this.game.metacritic;
-      }, 1000);
+      this.gameRating = this.game.metacritic;
     });
   }
 
   getColor(value: number): string {
     switch (true) {
       case value > 75:
-        return '#5ee432';
+        return '#37b24d';
       case value > 50:
-        return '#fffa50';
+        return '#f59f00';
       case value > 30:
-        return '#f7aa38';
+        return '#f76707';
       default:
-        return '#ef4655';
+        return '#f03e3e';
+    }
+  }
+
+  ngOnDestroy(): void {
+    if(this.routeSub) {
+      this.routeSub.unsubscribe();
+    }
+
+    if(this.gameSub) {
+      this.gameSub.unsubscribe();
     }
   }
 }

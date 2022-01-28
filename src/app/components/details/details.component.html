@@ -1,36 +1,37 @@
 <section class="details" *ngIf="game !== undefined">
-  <div class="container">
+  <header class="details__header">
     <div class="details__image-box">
-      <img [src]="game.background_image" alt="background image" class="details__img">
+      <img *ngIf="game.background_image" [src]="game.background_image" alt="background image" class="details__img">
     </div>
   
-    <div class="details__content">
-      <h1 class="details__content-header">{{ game.name }}</h1>
-      <span class="details__content-released">{{ game.released | date }}</span>
-      <p class="details__content-description">{{ game.description_raw }}</p>
-      <ul class="details__content-genres">
-        <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
-      </ul>
+    <div class="details__info">
+      <h1 class="details__info-name">{{ game.name }}</h1>
+      <div class="details__info-content">
+        <span class="details__info-released">Released: {{ game.released | date }}</span>
+        <ul class="details__info-genres" *ngIf="game.genres">
+          <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
+        </ul>
+      </div>
+      <div class="details__gauge-box gauge-box" *ngIf="gameRating">
+        <mwl-gauge
+          class="gauge-box__raiting"
+          [max]="100"
+          [dialStartAngle]="180"
+          [dialEndAngle]="0"
+          [value]="gameRating"
+          [animated]="false"
+          [color]="getColor"
+          [animationDuration]="2"
+        >
+          
+        </mwl-gauge>
+    
+        <a *ngIf="game.metacritic_url"
+           class="gauge-box__link" 
+           [href]="game.metacritic_url" 
+           target="_blank">Metacritic</a>
+      </div>
     </div>
-
-    <div class="details__gauge">
-      <mwl-gauge
-        class="two"
-        [max]="100"
-        [dialStartAngle]="180"
-        [dialEndAngle]="0"
-        [value]="gameRating"
-        [animated]="true"
-        [color]="getColor"
-        [animationDuration]="2"
-      >
-        
-      </mwl-gauge>
-
-      <a [href]="game.metacritic_url" target="_blank" class="details__label">Metacritic</a>
-
-      {{ game.metacritic_url | json }}
-    </div>
-    <!-- tabs -->
-  </div>
+  </header>
+  <!-- tabs -->
 </section>

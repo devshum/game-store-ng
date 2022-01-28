@@ -1,3 +1,74 @@
+@use '../../../assets/styles/abstracts/variables' as styles;
+
 :host {
   display: block;
+}
+
+.details {
+  &__header {
+    position: relative;
+  }
+
+  &__image-box {
+    height: 30vw;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: linear-gradient(to right, rgba(styles.$black, 0.6), rgba(styles.$black, 0.6));
+    }
+  }
+
+  &__img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__info {
+    display: grid;
+    position: absolute;
+    bottom: 2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: styles.$white;
+    text-align: center;
+  }
+
+  &__info-name {
+    font-size: 5.2rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__info-released {
+    display: inline-block;
+
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+  }
+
+  &__info-genres li {
+    display: inline-block;
+    background-color: styles.$white;
+    border-radius: 0.4rem;
+    color: styles.$gray;
+    padding: 0.2rem 0.4rem;
+
+    &:not(:last-child) {
+      margin-right: 0.8rem;
+    }
+  }
+
+  &__gauge-box {
+    position: relative;
+    justify-self: center;
+    margin-top: 2.4rem;
+  }
 }

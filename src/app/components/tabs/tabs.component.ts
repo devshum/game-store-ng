@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Game } from 'src/app/core/models/game.interface';
 
 @Component({
   selector: 'app-tabs',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent {
+  @Input() game: Game;
   constructor() {
   }
 

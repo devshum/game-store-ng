@@ -11,11 +11,12 @@ export interface Game {
   tags: tag[];
   metacritic: number;
   genres: Genre[];
+  platforms: Platforms[];
   parent_platforms: ParentPlatform[];
-  publishers: Publisher[];
+  publishers: Publishers[];
   ratings: Rating[];
   screenshots: Screenshot[];
-  trailers: Trailer[];
+  trailers: Trailers[];
 }
 
 interface Genre {
@@ -28,7 +29,13 @@ interface ParentPlatform {
   };
 }
 
-interface Publisher {
+interface Platforms {
+  platform: {
+    name: string;
+  };
+}
+
+interface Publishers {
   name: string;
 }
 
@@ -46,7 +53,7 @@ interface tag {
   name: string;
 }
 
-interface Trailer {
+interface Trailers {
   data: {
     max: string;
   };

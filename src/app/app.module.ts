@@ -15,13 +15,16 @@ import { CardModule } from 'primeng/card';
 import { CardComponent } from './components/card/card.component';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { DetailsComponent } from './components/details/details.component';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { TabViewModule } from 'primeng/tabview';
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
     HomeComponent,
     CardComponent,
-    DetailsComponent
+    DetailsComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { DetailsComponent } from './components/details/details.component';
     DropdownModule,
     BrowserAnimationsModule,
     CardModule,
+    TabViewModule,
     InlineSVGModule.forRoot({ baseUrl: '/assets/icons/', bypassHttpClientInterceptorChain: true })
   ],
   providers: [

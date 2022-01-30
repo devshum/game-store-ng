@@ -1,5 +1,5 @@
 <section class="details" *ngIf="game !== undefined">
-  <header class="details__header">
+  <!-- <header class="details__header">
     <div class="details__image-box">
       <img *ngIf="game.background_image" [src]="game.background_image" alt="background image" class="details__img">
     </div>
@@ -32,9 +32,11 @@
            target="_blank">Metacritic</a>
       </div>
     </div>
-  </header>
+  </header> -->
   <!-- tabs -->
-  <div class="container">
-    <app-tabs [game]="game"></app-tabs>
+  <div class="details__content">
+    <div class="container">
+      <app-tabs [game]="game"></app-tabs>
+    </div>
   </div>
 </section>

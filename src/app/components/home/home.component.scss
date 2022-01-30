@@ -5,7 +5,7 @@
 }
 
 .home {
-  background: linear-gradient(to bottom, styles.$gray-dark-40, styles.$gray-dark-15);
+  background: styles.$main-bg;
   padding: 4.8rem 0 12.8rem 0;
 
   &__header {

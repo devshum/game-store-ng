@@ -1,0 +1,29 @@
+@use '../../../../assets/styles/abstracts/variables.scss' as styles;
+
+.tabview {
+  .p-tabview {
+    .p-tabview {
+      &-nav {
+        background-color: transparent;
+
+        li {
+          &.p-highlight a {
+            background-color: #131e2c;
+          }
+
+          a {
+            background-color: #1a2b41;
+
+            &:not(.p-disabled):focus {
+              box-shadow: unset;
+            }
+          }
+        }
+      }
+  
+      &-panels {
+        background: linear-gradient(to left top, #0d121a, #1a2b41);
+      }
+    }
+  }
+}

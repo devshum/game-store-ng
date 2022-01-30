@@ -71,4 +71,8 @@
     justify-self: center;
     margin-top: 2.4rem;
   }
+
+  &__content {
+    background: styles.$main-bg;
+  }
 }

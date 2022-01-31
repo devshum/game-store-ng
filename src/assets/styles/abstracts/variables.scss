@@ -5,21 +5,28 @@ $font-inter: 'Inter', sans-serif;
 $black: #000;
 $white: #fff;
 $gray: #171a21;
-$blue: #5c7cfa;
+
+$blue: #67c1f5;
+$green: #37b24d;
+$orange: #f76707;
+$yellow: #f59f00;
+$red: #f03e3e;
+
+$acua-dark: #213c55;
+$acua-light: #016968;
 
 $gray-dark-5: #181818;
-$gray-dark-10: #101822;
 $gray-dark-15: #1b2838;
-$gray-dark-20: #282f38;
-$gray-dark-25: #888c91;
-$gray-dark-30: #40464e;
 $gray-dark-35: #343a40;
 $gray-dark-40: #2a475e;
 
-$gray-light-5: #70747a;
-$gray-light-10: #c6c8ca;
+$gray-light: #c6d4df;
 $gray-light-15: #cfd1d3;
-$gray-light-20: #f1f3f5;
 $gray-light-25: #eceded;
 
+// TRANSITIONS
+$transition-default: all 0.5s;
+$transition-smooth: all 0.5s ease-out;
+
+// COMMON
 $main-bg: linear-gradient(to bottom, $gray-dark-40, $gray-dark-15);

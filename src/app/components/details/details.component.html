@@ -12,25 +12,6 @@
           <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
         </ul>
       </div>
-      <div class="details__gauge-box gauge-box" *ngIf="gameRating">
-        <mwl-gauge
-          class="gauge-box__raiting"
-          [max]="100"
-          [dialStartAngle]="180"
-          [dialEndAngle]="0"
-          [value]="gameRating"
-          [animated]="false"
-          [color]="getColor"
-          [animationDuration]="2"
-        >
-          
-        </mwl-gauge>
-    
-        <a *ngIf="game.metacritic_url"
-           class="gauge-box__link" 
-           [href]="game.metacritic_url" 
-           target="_blank">Metacritic</a>
-      </div>
     </div>
   </header> -->
   <!-- tabs -->

@@ -1,6 +1,6 @@
 <section class="home">
   <div class="container">
-    <h1 class="home__heading h1">Games data base</h1>
+    <h1 class="home__heading h1">{{ title ? title : 'Searched games' }}</h1>
 
     <header class="home__header">
       <span class="home__header-title">Found<span>{{ count }}</span>games</span>
@@ -9,7 +9,7 @@
                   [(ngModel)]="selectedParamValue" 
                   optionLabel="label"
                   optionValue="value"
-                  (onChange)="searchGames(selectedParamValue)"
+                  (onChange)="searchGames(selectedParamValue, pageSize)"
                   class="dropdown"></p-dropdown>
     </header>
 

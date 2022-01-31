@@ -13,9 +13,11 @@ import { Subscription } from 'rxjs';
 
 export class HomeComponent implements OnInit, OnDestroy {
   public parameters: SelectItem[];
-  public selectedParamValue: string;
+  public selectedParamValue = '-added';
   public games: Game[];
   public count: number;
+  public title: string;
+  public pageSize = 21;
   private _routeSub: Subscription;
   private _gameSub: Subscription;
 
@@ -29,19 +31,20 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._routeSub = this._activetedRoute.params.subscribe((params: Params) => {
       if(params['game-search']) {
-        this.searchGames('-added', params['game-search']);
+        this.searchGames(this.selectedParamValue, this.pageSize, params['game-search']);
       } else {
-        this.searchGames('-added');
+        this.searchGames(this.selectedParamValue, this.pageSize);
       }
     });
   }
 
-  searchGames(sort: string, search?: string): void {
+  searchGames(sort: string, pageSize: number, search?: string): void {
     this._gameSub = this._gamesService
-    .getGames(sort, search)
+    .getGames(sort, pageSize, search)
     .subscribe(data => {
       this.games = data.results;
       this.count = data.count;
+      this.title = data.seo_title;
     });
   }
 

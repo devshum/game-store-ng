@@ -7,6 +7,7 @@ export interface Game {
   description_raw: string;
   website: string;
   description: string;
+  developers: Developers[];
   slug: string;
   tags: tag[];
   metacritic: number;
@@ -33,6 +34,10 @@ interface Platforms {
   platform: {
     name: string;
   };
+}
+
+interface Developers {
+  name: string;
 }
 
 interface Publishers {

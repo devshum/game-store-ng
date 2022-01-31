@@ -35,19 +35,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  getColor(value: number): string {
-    switch (true) {
-      case value > 75:
-        return '#37b24d';
-      case value > 50:
-        return '#f59f00';
-      case value > 30:
-        return '#f76707';
-      default:
-        return '#f03e3e';
-    }
-  }
-
   ngOnDestroy(): void {
     if(this.routeSub) {
       this.routeSub.unsubscribe();

@@ -6,26 +6,31 @@
 
 .card {
   display: grid;
-  grid-template-rows: 22rem auto;
+  grid-template-rows: 40rem;
   overflow: hidden;
-  border-radius: 1.2rem;
-  background-color: styles.$gray-dark-10;
   box-shadow: 0 2rem 3rem 0 rgba(styles.$black, 0.2);
-  height: 100%;
-  transition: all 0.5s;
+  transition: styles.$transition-default;
   cursor: pointer;
+  position: relative;
   
   &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 2rem 3rem 0 rgba(styles.$black, 0.1);
+    .card {
+      &__content {
+        bottom: 0;
+      }
 
-    .card__image {
-      filter: unset;
+      &__bg-box {
+        opacity: 0.3;
+      }
+
+      &__image-box {
+        bottom: 50%;
+      }
     }
   }
 
-  &__image-box {
-    border-bottom: 0.1rem solid styles.$gray-dark-20;
+  &__bg-box {
+    transition: styles.$transition-smooth;
 
     &.no-image {
       display: flex;
@@ -40,28 +45,73 @@
     }
   }
 
-  &__image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  &__bg {
     filter: hue-rotate(20deg) brightness(0.95);
-    transition: all 0.5s;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
+    transition: styles.$transition-smooth;
     padding: 2.4rem;
+    min-height: 50%;
+    position: absolute;
+    bottom: -60%;
+    z-index: 2;
+    width: 100%;
+    background: linear-gradient( 315deg, styles.$acua-dark 5%, styles.$acua-light 95%);
+  }
+
+  &__image-box {
+    transition: styles.$transition-smooth;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: -60%;
   }
 
   &__title {
     text-overflow: ellipsis;
     width: 30rem;
+    font-size: 2.4rem;
     white-space: nowrap;
     overflow: hidden;
-    margin-bottom: 0.4rem;
+    margin-bottom: 1.6rem;
+    color: styles.$white;
+  }
+
+  &__row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+
+    margin-bottom: 0.8rem;
+  }
+
+  &__row-label {
     color: styles.$gray-light-15;
+    text-transform: uppercase;
+  }
+
+  &__row-name {
+    color: styles.$white;
+    margin-left: 0.4rem;
+
+    &.top {
+      color: styles.$green;
+    }
+
+    &.good {
+      color: styles.$yellow;
+    }
+
+    &.normal {
+      color: styles.$orange;
+    }
+
+    &.bad {
+      color: styles.$red;
+    }
   }
 
   &__subtitle {
@@ -70,24 +120,8 @@
     color: styles.$gray-light-15;
   }
 
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 2.4rem;
-    list-style: none;
-  }
-
-  &__tags-item {
-    background-color: styles.$gray-dark-30;
-    color: styles.$gray-light-10;
-    border-radius: 0.4rem;
-    padding: 0.4rem;
-
-    margin: 0 0.4rem 0.4rem 0;
-  }
-
   &__platforms {
-    margin-top: auto;
+    margin-top: 0.8rem;
   }
 
   &__platforms-item {
@@ -95,11 +129,13 @@
     align-items: center;
     justify-content: center;
 
-    margin-right: -1.6rem;
-    height: 4.8rem;
-    width: 4.8rem;
-    background-color: styles.$gray-light-5;
+    height: 3.2rem;
+    width: 3.2rem;
+    background-color: styles.$gray-light-15;
     border-radius: 50%;
-    border: 0.3rem solid styles.$gray-dark-10;
+
+    &:not(:last-child) {
+      margin-right: 0.4rem;
+    }
   }
 }

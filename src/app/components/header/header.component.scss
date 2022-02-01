@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.header {
+  padding: 2.4rem 0;
+  
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 15.6rem;
+  }
+}

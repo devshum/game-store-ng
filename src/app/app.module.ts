@@ -16,6 +16,7 @@ import { InlineSVGModule } from 'ng-inline-svg-2';
 import { DetailsComponent } from './components/details/details.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabViewModule } from 'primeng/tabview';
+import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { TabViewModule } from 'primeng/tabview';
     HomeComponent,
     CardComponent,
     DetailsComponent,
-    TabsComponent
+    TabsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

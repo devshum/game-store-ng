@@ -1,0 +1,61 @@
+@use '../../../../assets/styles/abstracts/variables.scss' as styles;
+
+.p-inputgroup.inputgroup {
+  position: relative;
+  height: 3.4rem;
+  align-items: center;
+
+  .p-button {
+    order: 1;
+    position: absolute;
+    right: 0.3rem;
+    border-radius: 0.4rem;
+    background: url(../../../img/search-icon-btn.png) center no-repeat lighten(styles.$gray-dark-40, 10%);
+    border: unset;
+    transition: styles.$transition-default;
+
+    &:focus,
+    &:hover {
+      box-shadow: unset;
+      background: url(../../../img/search-icon-btn--light.png) center no-repeat styles.$gray-dark-40;
+    }
+  }
+
+  input {
+    order: unset;
+    border: unset;
+    height: 100%;
+    padding: 0 1.6rem;
+    border-radius: 0.4rem;
+    
+    &:focus {
+      outline: unset;
+    }
+  }
+}
+
+.p-inputgroup-addon:last-child, 
+.p-inputgroup.inputgroup button:last-child, 
+.p-inputgroup.inputgroup input:last-child, 
+.p-inputgroup.inputgroup > .p-inputwrapper:last-child > 
+.p-component, .p-inputgroup > 
+.p-inputwrapper:last-child > 
+.p-component > 
+.p-inputtext {
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+}
+
+.p-inputgroup-addon:first-child, 
+.p-inputgroup.inputgroup button:first-child, 
+.p-inputgroup.inputgroup input:first-child, 
+.p-inputgroup.inputgroup > 
+.p-inputwrapper:first-child > 
+.p-component, 
+.p-inputgroup.inputgroup > 
+.p-inputwrapper:first-child > 
+.p-component > 
+.p-inputtext {
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+}

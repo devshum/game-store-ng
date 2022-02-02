@@ -2,7 +2,7 @@
 
 .dropdown {
   .p-dropdown {
-    background-color: #30556f;
+    background-color: styles.$gray-dark-45;
     border: unset;
 
     // disable .p-focus class
@@ -29,31 +29,29 @@
     }
 
     &-items-wrapper {
-      overflow: unset;
       max-height: unset !important;
     }
 
     &-panel {
-      background-color: #30556f;
+      background-color: styles.$gray-dark-45;
       top: 45px !important;
 
       .p-dropdown-items {
         .p-dropdown {
           &-item {
-            color: #549dc7;
+            color: styles.$blue-dark;
             transition: styles.$transition-default;
             font-size: 1.4rem;
 
             &.p-highlight {
-              background-color: #2b4d64;
-              color: styles.$blue;
+              display: none;
             }
 
             &:not(.p-highlight) {
               &:not(.p-disabled) {
                 &:hover {
                   color: styles.$blue;
-                  background-color: transparent;
+                  background-color: styles.$gray-dark-50;
                 }
               }
             }

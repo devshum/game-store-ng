@@ -1,0 +1,37 @@
+<footer class="footer">
+  <div class="footer__container container">
+    <ul class="footer__row">
+      <li class="footer__list-item">
+        <a (click)="goToLink('https://www.valvesoftware.com/ru/')">
+          <img src="../../../assets/img/footer-logo.png" alt="footer logo">
+        </a>
+      </li>
+
+      <li class="footer__list-item">
+        <img src="../../../assets/img/steam-logo.png" alt="steam logo">
+      </li>
+    </ul>
+  
+    <ul class="footer__row">
+      <li class="footer__list-item">
+        <span>© {{ currentYear }} Steam Clone for practising purposes</span>
+      </li>
+
+      <li class="footer__list-item footer__list-item--links">
+        <span>Powered by: </span>
+        <a (click)="goToLink('https://angular.io')">
+          <i class="footer__icon" [inlineSVG]="'angular.svg'"></i>
+        </a>
+
+        <a (click)="goToLink('https://github.com/devshum')">
+          <i class="footer__icon" [inlineSVG]="'github.svg'"></i>
+        </a>
+
+        <a (click)="goToLink('https://codepen.io/vladshumdev')">
+          <i class="footer__icon" [inlineSVG]="'codepen.svg'"></i>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</footer>

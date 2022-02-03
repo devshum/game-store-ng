@@ -15,7 +15,7 @@
 
         &-icon {
           &::before {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
           }
         }
       }
@@ -25,7 +25,7 @@
       font-size: 1.6rem;
       color: styles.$blue;
       font-weight: 500;
-      padding: 1rem 0 1rem 1rem;
+      padding: 0.5rem 0 0.5rem 1rem;
     }
 
     &-items-wrapper {
@@ -34,7 +34,7 @@
 
     &-panel {
       background-color: styles.$gray-dark-45;
-      top: 45px !important;
+      top: 35px !important;
 
       .p-dropdown-items {
         .p-dropdown {

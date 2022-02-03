@@ -1,9 +1,12 @@
+@use '../../../assets/styles/abstracts/variables.scss' as styles;
+
 :host {
   display: block;
 }
 
 .header {
-  padding: 2.4rem 0;
+  padding: 2rem 0;
+  background-color: styles.$gray;
   
   &__container {
     display: flex;
@@ -12,6 +15,7 @@
   }
 
   &__logo {
+    display: block;
     width: 15.6rem;
   }
 }

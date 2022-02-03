@@ -17,6 +17,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabViewModule } from 'primeng/tabview';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { HeaderComponent } from './components/header/header.component';
     CardComponent,
     DetailsComponent,
     TabsComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

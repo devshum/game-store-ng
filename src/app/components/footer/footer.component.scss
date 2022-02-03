@@ -1,0 +1,60 @@
+@use '../../../assets/styles/abstracts/variables.scss' as styles;
+
+:host {
+  display: block;
+}
+
+.footer {
+  background-color: styles.$gray;
+  padding: 3.2rem;
+
+  &__container {
+    padding: 1.6rem;
+    border-top: 0.1rem solid styles.$gray-dark-35;
+    border-bottom: 0.1rem solid styles.$gray-dark-35;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 1.4rem;
+      color: styles.$gray-text;
+    }
+
+    a {
+      display: inline-block;
+      cursor: pointer;
+
+      img {
+        display: block;
+        width: 88px;
+      }
+    }
+
+    &--links {
+      a {
+        &:last-child {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+}

@@ -29,13 +29,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._routeSub = this._activetedRoute.params.subscribe((params: Params) => {
-      if(params['game-search']) {
-        this.searchGames(this.selectedParamValue, this.pageSize, params['game-search']);
-      } else {
-        this.searchGames(this.selectedParamValue, this.pageSize);
-      }
-    });
+    // this._routeSub = this._activetedRoute.params.subscribe((params: Params) => {
+    //   if(params['game-search']) {
+    //     this.searchGames(this.selectedParamValue, this.pageSize, params['game-search']);
+    //   } else {
+    //     this.searchGames(this.selectedParamValue, this.pageSize);
+    //   }
+    // });
   }
 
   searchGames(sort: string, pageSize: number, search?: string): void {

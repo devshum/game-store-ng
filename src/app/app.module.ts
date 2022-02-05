@@ -18,6 +18,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { TabViewModule } from 'primeng/tabview';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SwiperModule } from 'swiper/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserAnimationsModule,
     CardModule,
     TabViewModule,
+    [SwiperModule],
     InlineSVGModule.forRoot({ baseUrl: '/assets/icons/', bypassHttpClientInterceptorChain: true })
   ],
   providers: [

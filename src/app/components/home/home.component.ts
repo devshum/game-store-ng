@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public count: number;
   public title: string;
   public pageSize = 21;
+
   private _routeSub: Subscription;
   private _gameSub: Subscription;
 

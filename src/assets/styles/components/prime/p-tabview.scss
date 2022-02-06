@@ -8,11 +8,11 @@
 
         li {
           &.p-highlight a {
-            background-color: #131e2c;
+            background-color: styles.$blue-dark-5;
           }
 
           a {
-            background-color: #1a2b41;
+            background-color: styles.$blue-dark-10;
 
             &:not(.p-disabled):focus {
               box-shadow: unset;
@@ -22,7 +22,7 @@
       }
   
       &-panels {
-        background: linear-gradient(to left top, #0d121a, #1a2b41);
+        background: linear-gradient(to left top, styles.$blue-dark-5, styles.$blue-dark-10);
       }
     }
   }

@@ -13,5 +13,6 @@ export class SearchBarComponent {
 
   onSubmit(form: NgForm) {
     this._router.navigate(['search', form.value.search]);
+    form.reset({search: ''});
   }
 }

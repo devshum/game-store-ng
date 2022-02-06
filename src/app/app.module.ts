@@ -14,7 +14,7 @@ import { CardModule } from 'primeng/card';
 import { CardComponent } from './components/card/card.component';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { DetailsComponent } from './components/details/details.component';
-import { TabsComponent } from './components/tabs/tabs.component';
+import { SliderComponent } from './components/slider/slider.component';
 import { TabViewModule } from 'primeng/tabview';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -26,7 +26,7 @@ import { SwiperModule } from 'swiper/angular';
     HomeComponent,
     CardComponent,
     DetailsComponent,
-    TabsComponent,
+    SliderComponent,
     HeaderComponent,
     FooterComponent
   ],

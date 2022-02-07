@@ -12,8 +12,6 @@ import { GamesService } from 'src/app/core/services/games.service';
 export class CardComponent implements OnInit, OnDestroy {
   @Input() game: Game;
 
-  public gameRating = 0;
-
   private _gameSub: Subscription;
 
   constructor(
@@ -28,7 +26,6 @@ export class CardComponent implements OnInit, OnDestroy {
   getGameDetails(id: string): void {
     this._gameSub = this._gamesService.getGameDetails(id).subscribe((data: Game) => {
       this.game = data;
-      this.gameRating = this.game.metacritic;
     });
   }
 

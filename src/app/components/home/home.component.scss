@@ -5,6 +5,8 @@
 }
 
 .home {
+  background: styles.$main-bg;
+  
   &__header {
     display: flex;
     justify-content: space-between;

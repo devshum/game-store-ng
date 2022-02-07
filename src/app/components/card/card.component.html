@@ -14,7 +14,7 @@
 
   <div class="card__content">
 
-    <h3 class="card__title">{{ game.name }}</h3>
+    <h3 class="card__title" *ngIf="game.name">{{ game.name }}</h3>
 
     <div class="card__row" *ngIf="game.developers?.length">
       <span class="card__row-label">Developer: </span>
@@ -34,28 +34,17 @@
       </span>
     </div> 
 
-    <div class="card__row" *ngIf="gameRating">
+    <div class="card__row" *ngIf="game.metacritic">
       <span class="card__row-label">Raititng:</span>
 
-      
       <span class="card__row-name" 
             [ngClass]="{
-                'top': gameRating >= 75,
-                'good': gameRating >= 50 && gameRating < 75,
-                'normal': gameRating >= 30 && gameRating < 50,
-                'bad': gameRating > 0 && gameRating < 30
-            }">{{ gameRating }}</span>
+                'top': game.metacritic >= 75,
+                'good': game.metacritic >= 50 && game.metacritic < 75,
+                'normal': game.metacritic >= 30 && game.metacritic < 50,
+                'bad': game.metacritic > 0 && game.metacritic < 30
+            }">{{ game.metacritic }}</span>
     </div>
-
-    <!-- <span class="card__subtitle">Released: {{ game.released | date }}</span> -->
-
-    <!-- <ul class="card__tags">
-      <ng-container *ngIf="game.tags.length">
-        <li class="card__tags-item" *ngFor="let tag of game.tags.slice(0, 3)">{{ tag.name }}</li>
-      </ng-container>
-
-      <li *ngIf="!game.tags.length" class="card__tags-item">adventure</li>
-    </ul> -->
 
     <ul class="card__platforms" *ngIf="game.parent_platforms?.length">
       <li class="card__platforms-item" *ngFor="let platform of game.parent_platforms.slice(0, 9)">

@@ -1,25 +1,30 @@
-<div class="slider">
+<img *ngIf="!game.trailers.length && !game.screenshots.length"
+      src="../../../assets/img/no-content.png"
+      alt="no image" 
+      class="card__bg image"
+      style="height: 55rem">
+<div class="slider" *ngIf="game.trailers.length || game.screenshots.length">
   <swiper
-      (slideChange)="onSlideChange($event)"
-      [spaceBetween]="10"
-      [navigation]="true"
-      [thumbs]="{ swiper: thumbsSwiper }"
-      class="slider__wrapper"
-      >
+    (slideChange)="onSlideChange($event)"
+    [spaceBetween]="10"
+    [navigation]="true"
+    [thumbs]="{ swiper: thumbsSwiper }"
+    class="slider__wrapper"
+    >
 
-    <ng-template swiperSlide *ngFor="let trailer of game.trailers.slice(0, 3)">
-      <video class="slider__video" controls #video>
-        <source [src]="trailer.data.max" type="video/mp4">
-        Your browser does not support HTML video.
-      </video>
-    </ng-template> 
+  <ng-template swiperSlide *ngFor="let trailer of game.trailers.slice(0, 3)">
+    <video class="slider__video" controls #video>
+      <source [src]="trailer.data.max" type="video/mp4">
+      Your browser does not support HTML video.
+    </video>
+  </ng-template> 
 
-    <ng-template swiperSlide *ngFor="let screenshot of game.screenshots">
-      <img class="slider__image" [src]="screenshot.image" [alt]="game + 'screenshot'">
-    </ng-template>
-  
-    <div class="slider__btn-next swiper-button-next"></div>
-    <div class="slider__btn-prev swiper-button-prev"></div>
+  <ng-template swiperSlide *ngFor="let screenshot of game.screenshots">
+    <img class="slider__image" [src]="screenshot.image" [alt]="game + 'screenshot'">
+  </ng-template>
+
+  <div class="slider__btn-next swiper-button-next"></div>
+  <div class="slider__btn-prev swiper-button-prev"></div>
   </swiper>
 
   <swiper
@@ -29,7 +34,7 @@
     [freeMode]="true"
     [watchSlidesProgress]="true"
     class="slider__wrapper"
-  >
+    >
 
     <ng-template swiperSlide *ngFor="let trailer of game.trailers.slice(0, 3)">
       <img class="slider__image" src="../../../assets/img/video-stub.png" alt="video srub">

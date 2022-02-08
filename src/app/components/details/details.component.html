@@ -1,23 +1,123 @@
-<section class="details" *ngIf="game !== undefined">
-  <!-- <header class="details__header">
-    <div class="details__image-box">
-      <img *ngIf="game.background_image" [src]="game.background_image" alt="background image" class="details__img">
-    </div>
+<section class="details" *ngIf="game !== undefined" 
+         [ngStyle]="{'background-image': 'radial-gradient( closest-side,rgba(42, 71, 94, 0.95), rgba(27, 40, 56, 0.95)), url(' +  game.background_image + ')'}">
+
+ <div class="details__wrapper">
+  <div class="details__container container">
+    <header class="details__header">
+      <h1 class="details__name" *ngIf="game.name">
+        {{ game.name }}
+      </h1>
+
+      <a *ngIf="game.website" 
+         class="details__site"
+         [href]="game.website" 
+         target="_blank">Visit website
+      </a>
+    </header>
+
+    <div class="details__panel">
+      <app-slider [game]="game"></app-slider>
+
+      <div>
+        <div class="details__image-box">
+          <img *ngIf="game.background_image" [src]="game.background_image" alt="background image" class="image">
+
+          <img *ngIf="!game.background_image"
+               src="../../../assets/img/no-image.png"
+               alt="no image" 
+               class="card__bg image">
+        </div>
   
-    <div class="details__info">
-      <h1 class="details__info-name">{{ game.name }}</h1>
-      <div class="details__info-content">
-        <span class="details__info-released">Released: {{ game.released | date }}</span>
-        <ul class="details__info-genres" *ngIf="game.genres">
-          <li *ngFor="let genre of game.genres">{{ genre.name }}</li>
-        </ul>
+  
+        <div class="details__panel-content">
+          <span class="details__description" *ngIf="game.description_raw">{{ game.description_raw }}</span>
+  
+          <div class="details__row" *ngIf="let rating of game.ratings.length">
+            <ng-container *ngFor="let rating of game.ratings">
+              <div class="details__line" *ngIf="rating.title === 'exceptional'">
+                <span class="details__label">Likes:</span>
+                <div>
+                  <span class="details__label-color details__label-color--good">{{ rating.count || '---' }}</span>
+                  <span class="details__icon details__icon--good">✔</span>
+                </div>
+              </div>
+        
+              <div class="details__line" *ngIf="rating.title === 'skip'">
+                <span class="details__label">Dislikes:</span>
+                <div>
+                  <span class="details__label-color details__label-color--bad">{{ rating.count || '---' }}</span>
+                  <span  class="details__icon details__icon--bad">&#9785;</span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="details__row details__line" *ngIf="game.released">
+            <span class="details__label">Released:</span>
+            <span class="details__released">{{ game.released | date }}</span>
+          </div>
+
+          <div class="details__row" *ngIf="game.developers.length">
+            <div class="details__line">
+              <span class="details__label">Developer: </span>
+        
+              <span class="details__label-color details__label-color--good" 
+                    *ngFor="let developer of game.developers?.slice(0, 1)">
+                    {{ developer.name }}
+              </span>
+            </div>  
+        
+            <div class="details__line" *ngIf="game.publishers.length">
+              <span class="details__label">Publisher: </span>
+        
+              <span class="details__label-color details__label-color--good"
+                    *ngFor="let publisher of game.publishers.slice(0, 1)">
+                    {{ publisher.name }}
+              </span>
+            </div>
+          </div>
+            
+          <div class="details__tags-box" *ngIf="game.tags.length">
+            <span class="details__tags-description">Popular tags for this products:</span>
+
+            <ul class="details__tags">
+              <li class="details__tags-item" *ngFor="let tag of game.tags.slice(0, 3)">{{ tag.name }}</li>
+              <li *ngIf="!game.tags.length" class="details__tags-item">adventure</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </header> -->
-  <!-- tabs -->
-  <div class="details__content">
-    <div class="container">
-      <app-tabs [game]="game"></app-tabs>
-    </div>
   </div>
+ </div>
+ <div class="container">
+    <div class="details__panel-bottom" [class.no-content]="!game.metacritic">
+      <div class="details__meta" *ngIf="game.metacritic">
+        <div class="details__meta-score" 
+             [ngClass]="{
+              'top': game.metacritic >= 75,
+              'good': game.metacritic >= 50 && game.metacritic < 75,
+              'normal': game.metacritic >= 30 && game.metacritic < 50,
+              'bad': game.metacritic > 0 && game.metacritic < 30
+              }">{{ game.metacritic }}
+        </div>
+
+        <img class="details__meta-logo" src="../../../assets/img/metacritic-logo.png" alt="meta logo">
+
+        <div class="details__meta-content">
+          <span class="details__meta-label">metacritic</span>
+
+          <div class="details__meta-link" *ngIf="game.metacritic_url">
+            <a [href]="game.metacritic_url" 
+               class="details__meta-site" 
+               target="_blank">
+               Read reviews
+            </a>
+
+            <img class="details__meta-site-logo" src="../../../assets/img/meta-link.gif" alt="meta site logo">
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
 </section>

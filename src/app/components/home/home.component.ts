@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public title: string;
   public pageSize = 21;
   public load = true;
-  public skeletons = [...Array(this.pageSize)].map((_, i) => i + 1);
+  public skeletons = [...Array(this.pageSize)];
 
   private _routeSub: Subscription;
   private _gameSub: Subscription;

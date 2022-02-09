@@ -1,0 +1,20 @@
+@use '../../abstracts/variables' as styles;
+
+.skeleton {
+  &.mb {
+    .p-skeleton {
+      margin-bottom: 3.2rem;
+    }
+  }
+  
+  .p-skeleton {
+    display: inline-block;
+    background-color: styles.$gray-light;
+
+    &:after {
+      background: linear-gradient(90deg, rgba(styles.$gray-dark-55, 0), 
+                                         rgba(styles.$gray-dark-55, 0.4), 
+                                         rgba(styles.$gray-dark-55, 0))
+    }
+  }
+}

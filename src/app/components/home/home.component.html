@@ -1,19 +1,51 @@
 <section class="home">
   <div class="container">
-    <h1 class="home__heading h1">{{ title ? title : 'Searched games' }}</h1>
+    <h1 class="home__heading h1" *ngIf="!load">{{ title ? title : 'Searched games' }}</h1>
+
+    <p-skeleton class="skeleton mb"
+                *ngIf="load"
+                shape="square" 
+                borderRadius="6px"
+                height="48px"
+                width="217px">
+    </p-skeleton>
+
     <header class="home__header">
-      <span class="home__header-title">Found<span>{{ count }}</span>games</span>
+      <span class="home__header-title" *ngIf="!load">Found<span>{{ count }}</span>games</span>
+
+      <p-skeleton class="skeleton"
+                  *ngIf="load"
+                  shape="square" 
+                  borderRadius="6px"
+                  height="18px"
+                  width="171px">
+      </p-skeleton>
 
       <p-dropdown [options]="parameters" 
                   [(ngModel)]="selectedParamValue" 
                   optionLabel="label"
                   optionValue="value"
                   (onChange)="searchGames(selectedParamValue, pageSize)"
-                  class="dropdown"></p-dropdown>
+                  class="dropdown"
+                  *ngIf="!load">
+      </p-dropdown>
+                  
+      <p-skeleton class="skeleton"
+                  shape="square" 
+                  borderRadius="6px"
+                  height="38px"
+                  width="90px"
+                  *ngIf="load">
+      </p-skeleton>
     </header>
     
     <div class="home__wrapper" *ngIf="load">
-      <div *ngFor="let skeleton of skeletons" style="color: white">{{ skeleton }}</div>
+      <p-skeleton *ngFor="let skeleton of skeletons" 
+                  class="skeleton"
+                  shape="square" 
+                  borderRadius="0"
+                  height="400px">
+      </p-skeleton>
     </div>
 
     <div class="home__wrapper" *ngIf="!load">

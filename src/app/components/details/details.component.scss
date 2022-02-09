@@ -103,7 +103,7 @@
   &__label {
     display: inline-block;
     font-size: 1.4rem;
-    color: #687b86;
+    color: styles.$gray-dark-55;
     text-transform: uppercase;
   }
 
@@ -155,7 +155,7 @@
   &__tags-description {
     display: block;
     margin-bottom: 0.4rem;
-    color: #687b86;
+    color: styles.$gray-dark-55;
     font-size: 1.4rem;
   }
 
@@ -193,7 +193,7 @@
   }
 
   &__meta-content {
-    margin-left: 5px;
+    margin-left: 0.5rem;
   }
 
   &__meta-label {

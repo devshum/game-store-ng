@@ -4,6 +4,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Game } from 'src/app/core/models/game.interface';
 import SwiperCore, { FreeMode, Navigation, Thumbs } from 'swiper';
+import { LoaderService } from 'src/app/core/services/loader.service';
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
 @Component({
@@ -12,10 +13,8 @@ SwiperCore.use([FreeMode, Navigation, Thumbs]);
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit, OnDestroy {
-
-  public gameRating = 0;
-  public  game: Game;
-
+  public game: Game;
+  public load = true;
   private _gameId: string;
   private _routeSub: Subscription;
   private _gameSub: Subscription;
@@ -23,9 +22,11 @@ export class DetailsComponent implements OnInit, OnDestroy {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _gamesService: GamesService,
+    private _loaderService: LoaderService
   ) {}
 
   ngOnInit(): void {
+    this._loaderService.loadingStatus.subscribe((isLoad: boolean) => this.load = isLoad);
     this._routeSub = this._activatedRoute.params.subscribe((params: Params) => {
       this._gameId = params.id;
       this.getGameDetails(this._gameId);
@@ -33,9 +34,10 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   getGameDetails(id: string): void {
+    this._loaderService.start();
     this._gameSub = this._gamesService.getGameDetails(id).subscribe((data: Game) => {
       this.game = data;
-      this.gameRating = this.game.metacritic;
+      this._loaderService.end();
     });
   }
 

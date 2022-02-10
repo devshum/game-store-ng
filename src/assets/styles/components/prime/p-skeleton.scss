@@ -1,9 +1,15 @@
 @use '../../abstracts/variables' as styles;
 
 .skeleton {
-  &.mb {
+  &.mb-32 {
     .p-skeleton {
       margin-bottom: 3.2rem;
+    }
+  }
+
+  &.mb-4 {
+    .p-skeleton {
+      margin-bottom: 0.4rem;
     }
   }
   

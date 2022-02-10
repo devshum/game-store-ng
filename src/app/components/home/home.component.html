@@ -2,12 +2,12 @@
   <div class="container">
     <h1 class="home__heading h1" *ngIf="!load">{{ title ? title : 'Searched games' }}</h1>
 
-    <p-skeleton class="skeleton mb"
+    <p-skeleton class="skeleton mb-32"
                 *ngIf="load"
                 shape="square" 
-                borderRadius="6px"
-                height="48px"
-                width="217px">
+                borderRadius="0.6rem"
+                height="4.8rem"
+                width="21.7rem">
     </p-skeleton>
 
     <header class="home__header">
@@ -16,9 +16,9 @@
       <p-skeleton class="skeleton"
                   *ngIf="load"
                   shape="square" 
-                  borderRadius="6px"
-                  height="18px"
-                  width="171px">
+                  borderRadius="0.6rem"
+                  height="1.8rem"
+                  width="17.1rem">
       </p-skeleton>
 
       <p-dropdown [options]="parameters" 
@@ -32,9 +32,9 @@
                   
       <p-skeleton class="skeleton"
                   shape="square" 
-                  borderRadius="6px"
-                  height="38px"
-                  width="90px"
+                  borderRadius="0.6rem"
+                  height="3.8rem"
+                  width="9rem"
                   *ngIf="load">
       </p-skeleton>
     </header>
@@ -44,7 +44,7 @@
                   class="skeleton"
                   shape="square" 
                   borderRadius="0"
-                  height="400px">
+                  height="40rem">
       </p-skeleton>
     </div>
 

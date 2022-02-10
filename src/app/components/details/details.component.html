@@ -1,4 +1,4 @@
-<section class="details" *ngIf="game !== undefined" 
+<section class="details" *ngIf="!load" 
          [ngStyle]="{'background-image': 'radial-gradient( closest-side,rgba(42, 71, 94, 0.95), rgba(27, 40, 56, 0.95)), url(' +  game.background_image + ')'}">
 
  <div class="details__wrapper">
@@ -116,6 +116,247 @@
 
             <img class="details__meta-site-logo" src="../../../assets/img/meta-link.gif" alt="meta site logo">
           </div>
+        </div>
+      </div>
+    </div>
+ </div>
+</section>
+
+<section class="details" *ngIf="load" 
+         [ngStyle]="{'background-image': 'radial-gradient(closest-side,rgba(42, 71, 94), rgba(27, 40, 56))'}">
+
+ <div class="details__wrapper">
+  <div class="details__container container">
+    <header class="details__header">
+      <p-skeleton class="skeleton"
+                  shape="square" 
+                  borderRadius="0.6rem"
+                  height="3.2rem"
+                  width="19.5rem">
+      </p-skeleton>
+      <p-skeleton class="skeleton"
+                  shape="square" 
+                  borderRadius="0.6rem"
+                  height="3.7rem"
+                  width="12rem">
+      </p-skeleton>
+    </header>
+
+    <div class="details__panel">
+      <div class="details__panel-skeleton">
+        <p-skeleton class="skeleton"
+                    shape="square" 
+                    borderRadius="0"
+                    height="100%"
+                    width="100%">
+        </p-skeleton>
+
+        <p-skeleton class="skeleton"
+                    shape="square" 
+                    borderRadius="0"
+                    height="100%"
+                    width="100%">
+        </p-skeleton>
+
+        <p-skeleton class="skeleton"
+                    shape="square" 
+                    borderRadius="0"
+                    height="100%"
+                    width="100%">
+        </p-skeleton>
+
+        <p-skeleton class="skeleton"
+                    shape="square" 
+                    borderRadius="0"
+                    height="100%"
+                    width="100%">
+        </p-skeleton>
+
+        <p-skeleton class="skeleton"
+                    shape="square" 
+                    borderRadius="0"
+                    height="100%"
+                    width="100%">
+        </p-skeleton>
+
+        <p-skeleton class="skeleton"
+                    shape="square" 
+                    borderRadius="0"
+                    height="100%"
+                    width="100%">
+        </p-skeleton>
+      </div>
+
+      <div>
+        <div class="details__image-box">
+          <p-skeleton class="skeleton"
+                      shape="square" 
+                      borderRadius="0"
+                      height="100%"
+                      width="100%">
+          </p-skeleton>
+        </div>
+  
+  
+        <div class="details__panel-content">
+          <div class="details__row">
+            <p-skeleton class="skeleton mb-4"
+                        shape="square" 
+                        borderRadius="0.6rem"
+                        height="1rem"
+                        width="100%">
+            </p-skeleton>
+
+            <p-skeleton class="skeleton mb-4"
+                        shape="square" 
+                        borderRadius="0.6rem"
+                        height="1rem"
+                        width="100%">
+            </p-skeleton>
+
+            <p-skeleton class="skeleton mb-4"
+                        shape="square" 
+                        borderRadius="0.6rem"
+                        height="1rem"
+                        width="100%">
+            </p-skeleton>
+
+            <p-skeleton class="skeleton mb-4"
+                        shape="square" 
+                        borderRadius="0.6rem"
+                        height="1rem"
+                        width="100%">
+            </p-skeleton>
+
+            <p-skeleton class="skeleton mb-4"
+                        shape="square" 
+                        borderRadius="0.6rem"
+                        height="1rem"
+                        width="100%">
+            </p-skeleton>
+
+            <p-skeleton class="skeleton mb-4"
+                        shape="square" 
+                        borderRadius="0.6rem"
+                        height="1rem"
+                        width="100%">
+            </p-skeleton>
+          </div>
+  
+          <div class="details__row details__line">
+            <p-skeleton class="skeleton"
+                        shape="square" 
+                        borderRadius="0.6rem"
+                        height="1.8rem"
+                        width="10rem">
+            </p-skeleton>
+
+            <p-skeleton class="skeleton"
+                        shape="square" 
+                        borderRadius="0.6rem"
+                        height="1.8rem"
+                        width="14rem">
+            </p-skeleton>
+          </div>
+
+          <div class="details__row">
+            <div class="details__line">
+              <p-skeleton class="skeleton mb-4"
+                          shape="square" 
+                          borderRadius="0.6rem"
+                          height="1.8rem"
+                          width="10rem">
+              </p-skeleton>
+
+              <p-skeleton class="skeleton mb-4"
+                          shape="square" 
+                          borderRadius="0.6rem"
+                          height="1.8rem"
+                          width="14rem">
+              </p-skeleton>
+            </div>
+
+            <div class="details__line">
+              <p-skeleton class="skeleton mb-4"
+                          shape="square" 
+                          borderRadius="0.6rem"
+                          height="1.8rem"
+                          width="10rem">
+              </p-skeleton>
+
+              <p-skeleton class="skeleton mb-4"
+                          shape="square" 
+                          borderRadius="0.6rem"
+                          height="1.8rem"
+                          width="14rem">
+              </p-skeleton>
+            </div>
+          </div>
+
+          <p-skeleton class="skeleton mb-4"
+                      shape="square" 
+                      borderRadius="0.6rem"
+                      height="1rem"
+                      width="60%">
+          </p-skeleton>
+
+          <ul class="details__tags">
+            <p-skeleton class="skeleton details__tags-item-skeleton"
+                      shape="square" 
+                      borderRadius="0.2rem"
+                      height="2.3rem"
+                      width="10.6rem">
+            </p-skeleton>
+
+            <p-skeleton class="skeleton details__tags-item-skeleton"
+                        shape="square" 
+                        borderRadius="0.2rem"
+                        height="2.3rem"
+                        width="10.6rem">
+            </p-skeleton>
+
+            <p-skeleton class="skeleton details__tags-item-skeleton"
+                        shape="square" 
+                        borderRadius="0.2rem"
+                        height="2.3rem"
+                        width="10.6rem">
+            </p-skeleton>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+ <div class="container">
+    <div class="details__panel-bottom">
+      <div class="details__meta">
+        <p-skeleton class="skeleton details__meta-score"
+                    shape="square" 
+                    borderRadius="0"
+                    height="5rem"
+                    width="5rem">
+        </p-skeleton>
+
+        <p-skeleton class="skeleton"
+                    shape="circle" 
+                    height="3.2rem"
+                    width="3.2rem">
+        </p-skeleton>
+
+        <div class="details__meta-content">
+          <p-skeleton class="skeleton"
+                      shape="square" 
+                      borderRadius="0.6rem"
+                      height="2rem"
+                      width="12.4rem">
+          </p-skeleton>
+
+          <p-skeleton class="skeleton"
+                      shape="square" 
+                      borderRadius="0.6rem"
+                      height="1rem"
+                      width="12.4rem">
+          </p-skeleton>
         </div>
       </div>
     </div>

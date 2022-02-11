@@ -1,4 +1,4 @@
-import { LoaderService } from './../../core/services/loader.service';
+import { LoaderService } from '../../../core/services/loader.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { simpleFilterOptions } from 'src/app/core/models/filters.interface';
 import { SelectItem } from 'primeng/api';

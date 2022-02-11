@@ -3,10 +3,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { simpleFilterOptions } from 'src/app/core/models/filters.interface';
 import { SelectItem } from 'primeng/api';
 import { GamesService } from 'src/app/core/services/games.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Game } from 'src/app/core/models/game.interface';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subject, combineLatest } from 'rxjs';
+import { takeUntil, map } from 'rxjs/operators';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -41,19 +41,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     this._loaderService.loadingStatus.pipe(takeUntil(this._unsubscribe))
                                      .subscribe((isLoad: boolean) => this.load = isLoad);
 
-    this._activetedRoute.params.pipe(takeUntil(this._unsubscribe)).subscribe((params: Params) => {
-      this._activetedRoute.queryParams.pipe(takeUntil(this._unsubscribe)).subscribe((query: Params) => {
-        this.currentPage = query.page || this.currentPage;
-        this.selectedParamValue = query.ordering || this.selectedParamValue;
+    combineLatest([this._activetedRoute.params, this._activetedRoute.queryParams])
+      .pipe(map(results => ({params: results[0]['game-search'],
+                            queryParams: results[1]})))
+      .pipe(takeUntil(this._unsubscribe))
+      .subscribe(results => {
+        this.currentPage = results.queryParams.page || this.currentPage;
+        this.selectedParamValue = results.queryParams.ordering || this.selectedParamValue;
 
-        if(params['game-search']) {
-          this.searchGames(this.selectedParamValue, this.pageSize, this.currentPage, params['game-search']);
-          this.searchedGameTitle = params['game-search'].charAt(0).toUpperCase() + params['game-search'].slice(1);
+        if(results.params) {
+          this.searchGames(this.selectedParamValue, this.pageSize, this.currentPage, results.params);
+          this.searchedGameTitle = this.firstToUpper(results.params);
         } else {
           this.searchGames(this.selectedParamValue, this.pageSize, this.currentPage);
         }
       });
-    });
   }
 
   searchGames(sort: string, pageSize: number, currentPage: number, search?: string): void {
@@ -77,5 +79,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this._unsubscribe.next();
+  }
+
+  firstToUpper(params: string) {
+    return params.charAt(0).toUpperCase() + params.slice(1);
   }
 }

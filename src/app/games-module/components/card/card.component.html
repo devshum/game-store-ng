@@ -2,13 +2,13 @@
   <div class="card__bg-box"
        [class.no-image]="!game.background_image">
     <img *ngIf="game.background_image"
-         [defaultImage]="'../../../assets/img/lazy-image.png'"
+         [defaultImage]="'../../../../assets/img/lazy-image.png'"
          [lazyLoad]="game.background_image"
          [alt]="'Image of a game ' + game.name" 
          class="card__bg image">
 
     <img *ngIf="!game.background_image"
-         src="../../../assets/img/no-image.png"
+         src="../../../../assets/img/no-image.png"
          alt="no image" 
          class="card__bg image">
   </div>
@@ -57,7 +57,7 @@
   <div class="card__image-box">
     <img *ngIf="game.background_image"
          [alt]="'Image of a game ' + game.name" 
-         [defaultImage]="'../../../assets/img/lazy-image.png'"
+         [defaultImage]="'../../../../assets/img/lazy-image.png'"
          [lazyLoad]="game.background_image"
          class="card__image image">
   </div>

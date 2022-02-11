@@ -20,10 +20,10 @@
 
       <div>
         <div class="details__image-box">
-          <img *ngIf="game.background_image" [lazyLoad]="game.background_image" alt="background image" class="image" [defaultImage]="'../../../assets/img/lazy-image.png'">
+          <img *ngIf="game.background_image" [lazyLoad]="game.background_image" alt="background image" class="image" [defaultImage]="'../../../../assets/img/lazy-image.png'">
 
           <img *ngIf="!game.background_image"
-               src="../../../assets/img/no-image.png"
+               src="../../../../assets/img/no-image.png"
                alt="no image" 
                class="card__bg image">
         </div>
@@ -102,7 +102,7 @@
               }">{{ game.metacritic }}
         </div>
 
-        <img class="details__meta-logo" src="../../../assets/img/metacritic-logo.png" alt="meta logo">
+        <img class="details__meta-logo" src="../../../../assets/img/metacritic-logo.png" alt="meta logo">
 
         <div class="details__meta-content">
           <span class="details__meta-label">metacritic</span>
@@ -114,7 +114,7 @@
                Read reviews
             </a>
 
-            <img class="details__meta-site-logo" src="../../../assets/img/meta-link.gif" alt="meta site logo">
+            <img class="details__meta-site-logo" src="../../../../assets/img/meta-link.gif" alt="meta site logo">
           </div>
         </div>
       </div>

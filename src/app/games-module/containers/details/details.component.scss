@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
 
   &__wrapper {
-    background: url(../../../assets/img/background-shadow.png) bottom no-repeat;
+    background: url(../../../../assets/img/background-shadow.png) bottom no-repeat;
     background-size: contain;
   }
 
@@ -111,7 +111,7 @@
   &__line {
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 2fr;
     width: 80%;
   }
 

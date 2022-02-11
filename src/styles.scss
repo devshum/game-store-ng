@@ -1,18 +1,11 @@
+// custom styles
 @use 'assets/styles/abstracts/animations';
 
-@use 'assets/styles/base/global';
-@use 'assets/styles/base/typography';
-@use 'assets/styles/base/utilities';
-@use 'assets/styles/components/custom/card';
-@use 'assets/styles/components/custom/container';
-@use 'assets/styles/components/custom/footer';
-@use 'assets/styles/components/custom/slider';
+@use 'assets/styles/base/base-bundle';
+@use 'assets/styles/components/custom/custom-bundle';
+@use 'assets/styles/components/prime/prime-bundle';
 
-@use 'assets/styles/components/prime/p-dropdown';
-@use 'assets/styles/components/prime/p-tabview';
-@use 'assets/styles/components/prime/p-inputgroup';
-@use 'assets/styles/components/prime/p-skeleton';
-
+// packages' styles
 @use 'node_modules/primeicons/primeicons';
 @use 'node_modules/primeng/resources/themes/lara-light-indigo/theme';
 @use 'node_modules/primeng/resources/primeng.min';

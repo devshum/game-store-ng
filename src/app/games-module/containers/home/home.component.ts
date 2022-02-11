@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   public skeletons = [...Array(this.pageSize)];
   public pageCount: number;
   public currentPage = 1;
-  public first = 1;
   public searchedGameTitle: string;
 
   private _unsubscribe = new Subject();
@@ -65,19 +64,18 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this._loaderService.start();
     this._gamesService
-    .getGames(sort, pageSize, currentPage, search)
-    .pipe(takeUntil(this._unsubscribe))
-    .subscribe(data => {
-      this.pageCount = data.count;
-      this.games = data.results;
-      this.count = data.count;
-      this.title = data.seo_title;
-      this._loaderService.end();
+      .getGames(sort, pageSize, currentPage, search)
+      .pipe(takeUntil(this._unsubscribe))
+      .subscribe(data => {
+        this.pageCount = data.count;
+        this.games = data.results;
+        this.count = data.count;
+        this.title = data.seo_title;
+        this._loaderService.end();
     });
   }
 
   paginate(event: any) {
-    this.first = event.first;
     this.currentPage = event.page + 1;
 
     this._router.navigate([], { relativeTo: this._activetedRoute,

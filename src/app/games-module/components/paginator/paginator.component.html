@@ -1,0 +1,5 @@
+<p-paginator [rows]="pageSize"
+             [totalRecords]="pageCount"
+             (onPageChange)="paginate($event)"
+             [first]="currentPage > 0 ? (currentPage - 1) * pageSize : 0">
+</p-paginator>

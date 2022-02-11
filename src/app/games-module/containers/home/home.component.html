@@ -53,14 +53,12 @@
                 *ngFor="let game of games">
       </app-card>
 
-      <p-paginator class="home__pagination" 
-                   [rows]="pageSize"
-                   [totalRecords]="pageCount"
-                   (onPageChange)="paginate($event)"
-                   [first]="currentPage > 0 ? (currentPage - 1) * pageSize : 0">
-      </p-paginator>
-
-
+      <app-paginator class="home__pagination" 
+                     [selectedParamValue]="selectedParamValue"
+                     [currentPage]="currentPage"
+                     [pageSize]="pageSize"
+                     [pageCount]="pageCount">
+      </app-paginator>
     </div>
   </div>
 </section>

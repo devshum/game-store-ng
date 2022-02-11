@@ -32,6 +32,7 @@ import { SwiperModule } from 'swiper/angular';
 
 // lazy load
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     CardComponent,
     SliderComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PaginatorComponent
   ],
   imports: [
     FormsModule,

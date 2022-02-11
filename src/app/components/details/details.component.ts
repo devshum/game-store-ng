@@ -1,10 +1,11 @@
 import { GamesService } from 'src/app/core/services/games.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Game } from 'src/app/core/models/game.interface';
 import SwiperCore, { FreeMode, Navigation, Thumbs } from 'swiper';
 import { LoaderService } from 'src/app/core/services/loader.service';
+import { takeUntil } from 'rxjs/operators';
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
 @Component({
@@ -15,9 +16,9 @@ SwiperCore.use([FreeMode, Navigation, Thumbs]);
 export class DetailsComponent implements OnInit, OnDestroy {
   public game: Game;
   public load = true;
+
   private _gameId: string;
-  private _routeSub: Subscription;
-  private _gameSub: Subscription;
+  private _unsubscribe = new Subject();
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -26,8 +27,11 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this._loaderService.loadingStatus.subscribe((isLoad: boolean) => this.load = isLoad);
-    this._routeSub = this._activatedRoute.params.subscribe((params: Params) => {
+      this._loaderService.loadingStatus.pipe(takeUntil(this._unsubscribe))
+                                       .subscribe((isLoad: boolean) => this.load = isLoad);
+
+      this._activatedRoute.params.pipe(takeUntil(this._unsubscribe))
+                                                .subscribe((params: Params) => {
       this._gameId = params.id;
       this.getGameDetails(this._gameId);
     });
@@ -35,19 +39,15 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
   getGameDetails(id: string): void {
     this._loaderService.start();
-    this._gameSub = this._gamesService.getGameDetails(id).subscribe((data: Game) => {
+    this._gamesService.getGameDetails(id)
+                      .pipe(takeUntil(this._unsubscribe))
+                      .subscribe((data: Game) => {
       this.game = data;
       this._loaderService.end();
     });
   }
 
   ngOnDestroy(): void {
-    if(this._routeSub) {
-      this._routeSub.unsubscribe();
-    }
-
-    if(this._gameSub) {
-      this._gameSub.unsubscribe();
-    }
+    this._unsubscribe.next();
   }
 }

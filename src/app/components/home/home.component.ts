@@ -43,7 +43,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this._activetedRoute.params.pipe(takeUntil(this._unsubscribe)).subscribe((params: Params) => {
       this._activetedRoute.queryParams.subscribe((query: Params) => {
-        this.currentPage = query.page || 1;
+        this.currentPage = query.page || this.currentPage;
+        this.selectedParamValue = query.ordering || this.selectedParamValue;
 
         if(params['game-search']) {
           this.searchGames(this.selectedParamValue, this.pageSize, this.currentPage, params['game-search']);
@@ -56,6 +57,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   searchGames(sort: string, pageSize: number, currentPage: number, search?: string): void {
+    this._router.navigate([], { relativeTo: this._activetedRoute,
+                                skipLocationChange: false,
+                                queryParams: { ordering: this.selectedParamValue,
+                                               page: this.currentPage } });
+
     this._loaderService.start();
     this._gamesService
     .getGames(sort, pageSize, currentPage, search)
@@ -75,7 +81,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this._router.navigate([], { relativeTo: this._activetedRoute,
                                 skipLocationChange: false,
-                                queryParams: { page: this.currentPage} });
+                                queryParams: { ordering: this.selectedParamValue,
+                                               page: this.currentPage } });
   }
 
   ngOnDestroy(): void {

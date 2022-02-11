@@ -20,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SwiperModule } from 'swiper/angular';
 import {SkeletonModule} from 'primeng/skeleton';
+import { PaginatorModule } from 'primeng/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import {SkeletonModule} from 'primeng/skeleton';
     TabViewModule,
     [SwiperModule],
     SkeletonModule,
+    PaginatorModule,
     InlineSVGModule.forRoot({ baseUrl: '/assets/icons/', bypassHttpClientInterceptorChain: true })
   ],
   providers: [

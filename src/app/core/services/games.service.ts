@@ -13,12 +13,13 @@ export class GamesService {
   private _apiUrl = environment.apiUrl;
   constructor(private _http: HttpClient) { }
 
-  getGames(ordering: string, pageSize: number, search?: string): Observable<GameResponse> {
+  getGames(ordering: string, pageSize: number, page: number, search?: string): Observable<GameResponse> {
 
     let options = {
       params: new HttpParams()
       .set('ordering', ordering)
       .set('page_size', pageSize)
+      .set('page', page)
     };
 
     if(search) {
@@ -27,6 +28,7 @@ export class GamesService {
         .set('ordering', ordering)
         .set('search', search)
         .set('page_size', pageSize)
+        .set('page', page)
       };
     }
 

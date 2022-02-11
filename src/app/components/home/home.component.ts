@@ -5,7 +5,7 @@ import { SelectItem } from 'primeng/api';
 import { GamesService } from 'src/app/core/services/games.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Game } from 'src/app/core/models/game.interface';
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-home',
@@ -39,10 +39,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._loaderService.loadingStatus.subscribe((isLoad: boolean) => this.load = isLoad);
+    this._loaderService.loadingStatus.pipe(takeUntil(this._unsubscribe))
+                                     .subscribe((isLoad: boolean) => this.load = isLoad);
 
     this._activetedRoute.params.pipe(takeUntil(this._unsubscribe)).subscribe((params: Params) => {
-      this._activetedRoute.queryParams.subscribe((query: Params) => {
+      this._activetedRoute.queryParams.pipe(takeUntil(this._unsubscribe)).subscribe((query: Params) => {
         this.currentPage = query.page || this.currentPage;
         this.selectedParamValue = query.ordering || this.selectedParamValue;
 

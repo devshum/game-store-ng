@@ -1,6 +1,7 @@
+import { takeUntil } from 'rxjs/operators';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Game } from 'src/app/core/models/game.interface';
 import { GamesService } from 'src/app/core/services/games.service';
 
@@ -12,7 +13,7 @@ import { GamesService } from 'src/app/core/services/games.service';
 export class CardComponent implements OnInit, OnDestroy {
   @Input() game: Game;
 
-  private _gameSub: Subscription;
+  private _unsubscribe = new Subject();
 
   constructor(
     private _router: Router,
@@ -24,9 +25,9 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   getGameDetails(id: string): void {
-    this._gameSub = this._gamesService.getGameDetails(id).subscribe((data: Game) => {
-      this.game = data;
-    });
+    this._gamesService.getGameDetails(id)
+                      .pipe(takeUntil(this._unsubscribe))
+                      .subscribe((data: Game) => this.game = data);
   }
 
   openGameDetails(id: string): void {
@@ -34,8 +35,6 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if(this._gameSub) {
-      this._gameSub.unsubscribe();
-    }
+    this._unsubscribe.next();
   }
 }

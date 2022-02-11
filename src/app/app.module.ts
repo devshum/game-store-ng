@@ -21,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SwiperModule } from 'swiper/angular';
 import {SkeletonModule} from 'primeng/skeleton';
 import { PaginatorModule } from 'primeng/paginator';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { PaginatorModule } from 'primeng/paginator';
     [SwiperModule],
     SkeletonModule,
     PaginatorModule,
+    LazyLoadImageModule,
     InlineSVGModule.forRoot({ baseUrl: '/assets/icons/', bypassHttpClientInterceptorChain: true })
   ],
   providers: [

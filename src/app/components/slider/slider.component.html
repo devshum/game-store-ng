@@ -20,7 +20,7 @@
     </ng-template> 
 
     <ng-template swiperSlide *ngFor="let screenshot of game.screenshots">
-      <img class="slider__image" [src]="screenshot.image" [alt]="game + 'screenshot'">
+      <img class="slider__image image" [lazyLoad]="screenshot.image" [alt]="game + 'screenshot'" [defaultImage]="'../../../assets/img/lazy-image.png'">
     </ng-template>
   </swiper>
 
@@ -34,11 +34,11 @@
     >
 
     <ng-template swiperSlide *ngFor="let trailer of game.trailers.slice(0, 3)">
-      <img class="slider__image" src="../../../assets/img/video-stub.png" alt="video srub">
+      <img class="slider__image image" src="../../../assets/img/video-stub.png" alt="video srub">
     </ng-template>
 
     <ng-template swiperSlide *ngFor="let screenshot of game.screenshots">
-      <img class="slider__image" [src]="screenshot.image" [alt]="game + 'screenshot'">
+      <img class="slider__image image" [lazyLoad]="screenshot.image" [alt]="game + 'screenshot'" [defaultImage]="'../../../assets/img/lazy-image.png'">
     </ng-template>
   </swiper>
 </div>

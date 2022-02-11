@@ -20,7 +20,7 @@
 
       <div>
         <div class="details__image-box">
-          <img *ngIf="game.background_image" [src]="game.background_image" alt="background image" class="image">
+          <img *ngIf="game.background_image" [lazyLoad]="game.background_image" alt="background image" class="image" [defaultImage]="'../../../assets/img/lazy-image.png'">
 
           <img *ngIf="!game.background_image"
                src="../../../assets/img/no-image.png"

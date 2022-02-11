@@ -1,6 +1,6 @@
 <section class="home">
   <div class="container">
-    <h1 class="home__heading h1" *ngIf="!load">{{ title ? title : 'Searched games' }}</h1>
+    <h1 class="home__heading h1" *ngIf="!load">{{ title ? title : searchedGameTitle }}</h1>
 
     <p-skeleton class="skeleton mb-32"
                 *ngIf="load"
@@ -25,7 +25,7 @@
                   [(ngModel)]="selectedParamValue" 
                   optionLabel="label"
                   optionValue="value"
-                  (onChange)="searchGames(selectedParamValue, pageSize)"
+                  (onChange)="searchGames(selectedParamValue, pageSize, currentPage, searchedGameTitle)"
                   class="dropdown"
                   *ngIf="!load">
       </p-dropdown>
@@ -52,6 +52,15 @@
       <app-card [game]="game" 
                 *ngFor="let game of games">
       </app-card>
+
+      <p-paginator class="home__pagination" 
+                   [rows]="pageSize"
+                   [totalRecords]="pageCount"
+                   (onPageChange)="paginate($event)"
+                   [first]="currentPage > 0 ? (currentPage - 1) * pageSize : 0">
+      </p-paginator>
+
+
     </div>
   </div>
 </section>

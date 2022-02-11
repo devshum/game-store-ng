@@ -35,4 +35,8 @@
     grid-template-columns: repeat(3, 1fr); 
     grid-gap: 3.2rem;
   }
+
+  &__pagination {
+    grid-column: 1 / -1;
+  }
 }

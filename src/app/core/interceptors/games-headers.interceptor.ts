@@ -13,7 +13,7 @@ export class GamesHeadersInterceptor implements HttpInterceptor {
         'x-rapidapi-key': 'ff865bb1dfmsh9ab225d644e14f1p172b82jsn8689cb5dd275'
       },
       setParams: {
-        key: '459b0534394c47a39271c860bc81cea8'
+        key: '57d8110674df4affbb5674c2e5c82792'
       }
     });
     return next.handle(req);

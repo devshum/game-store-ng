@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         if(params['game-search']) {
           this.searchGames(this.selectedParamValue, this.pageSize, this.currentPage, params['game-search']);
-          this.searchedGameTitle = params['game-search'];
+          this.searchedGameTitle = params['game-search'].charAt(0).toUpperCase() + params['game-search'].slice(1);
         } else {
           this.searchGames(this.selectedParamValue, this.pageSize, this.currentPage);
         }
@@ -73,15 +73,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.title = data.seo_title;
         this._loaderService.end();
     });
-  }
-
-  paginate(event: any) {
-    this.currentPage = event.page + 1;
-
-    this._router.navigate([], { relativeTo: this._activetedRoute,
-                                skipLocationChange: false,
-                                queryParams: { ordering: this.selectedParamValue,
-                                               page: this.currentPage } });
   }
 
   ngOnDestroy(): void {

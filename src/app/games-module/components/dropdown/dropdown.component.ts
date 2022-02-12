@@ -8,11 +8,9 @@ import { SelectItem } from 'primeng/api';
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent {
-  @Input() load = true;
   @Input() parameters: SelectItem[];
   @Input() selectedParamValue: string;
-
-  @Output() sort: EventEmitter<string> = new EventEmitter<string>();
+  @Input() load = true;
 
   constructor(
     private _activetedRoute: ActivatedRoute,

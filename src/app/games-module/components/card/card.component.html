@@ -16,24 +16,12 @@
   <div class="card__content">
 
     <h3 class="card__title" *ngIf="game.name">{{ game.name }}</h3>
+    
+    <div class="card__row" *ngIf="game.released">
+      <span class="card__row-label">Released:</span>
 
-    <div class="card__row" *ngIf="game.developers?.length">
-      <span class="card__row-label">Developer: </span>
-
-      <span class="card__row-name" 
-            *ngFor="let developer of game.developers?.slice(0, 1)">
-            {{ developer.name }}
-      </span>
-    </div>  
-
-    <div class="card__row" *ngIf="game.publishers?.length">
-      <span class="card__row-label">Publisher: </span>
-
-      <span class="card__row-name" 
-            *ngFor="let publisher of game.publishers?.slice(0, 1)">
-            {{ publisher.name }}
-      </span>
-    </div> 
+      <span class="card__row-name">{{ game.released | date }}</span>
+    </div>
 
     <div class="card__row" *ngIf="game.metacritic">
       <span class="card__row-label">Raititng:</span>

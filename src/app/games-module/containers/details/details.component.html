@@ -31,8 +31,8 @@
   
         <div class="details__panel-content">
           <span class="details__description" *ngIf="game.description_raw">{{ game.description_raw }}</span>
-  
-          <div class="details__row" *ngIf="let rating of game.ratings.length">
+            
+          <div class="details__row">
             <ng-container *ngFor="let rating of game.ratings">
               <div class="details__line" *ngIf="rating.title === 'exceptional'">
                 <span class="details__label">Likes:</span>

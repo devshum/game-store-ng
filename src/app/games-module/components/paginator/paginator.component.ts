@@ -10,7 +10,6 @@ export class PaginatorComponent {
   @Input() currentPage: number;
   @Input() pageSize: number;
   @Input() pageCount: number;
-  @Input() selectedParamValue: string;
 
   constructor(
     private _activetedRoute: ActivatedRoute,
@@ -22,7 +21,7 @@ export class PaginatorComponent {
 
     this._router.navigate([], { relativeTo: this._activetedRoute,
                                 skipLocationChange: false,
-                                queryParams: { ordering: this.selectedParamValue,
+                                queryParams: { ordering: '',
                                                page: this.currentPage } });
   }
 }

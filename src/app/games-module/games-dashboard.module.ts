@@ -18,6 +18,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { SliderComponent } from './components/slider/slider.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 // prime components
 import { ButtonModule } from 'primeng/button';
@@ -32,7 +34,6 @@ import { SwiperModule } from 'swiper/angular';
 
 // lazy load
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     SliderComponent,
     HeaderComponent,
     FooterComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    DropdownComponent
   ],
   imports: [
     FormsModule,

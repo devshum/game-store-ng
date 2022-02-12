@@ -1,0 +1,8 @@
+<p-dropdown [options]="parameters" 
+            [(ngModel)]="selectedParamValue" 
+            optionLabel="label"
+            optionValue="value"
+            (onChange)="sortGames()"
+            class="dropdown"
+            *ngIf="!load">
+</p-dropdown>

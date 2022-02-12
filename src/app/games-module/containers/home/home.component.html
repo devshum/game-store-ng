@@ -21,14 +21,11 @@
                   width="17.1rem">
       </p-skeleton>
 
-      <p-dropdown [options]="parameters" 
-                  [(ngModel)]="selectedParamValue" 
-                  optionLabel="label"
-                  optionValue="value"
-                  (onChange)="searchGames(selectedParamValue, pageSize, currentPage, searchedGameTitle)"
-                  class="dropdown"
-                  *ngIf="!load">
-      </p-dropdown>
+      <app-dropdown [parameters]="parameters"
+                    [selectedParamValue]="selectedParamValue"
+                    [load]="load">
+
+      </app-dropdown>
                   
       <p-skeleton class="skeleton"
                   shape="square" 
@@ -54,7 +51,6 @@
       </app-card>
 
       <app-paginator class="home__pagination" 
-                     [selectedParamValue]="selectedParamValue"
                      [currentPage]="currentPage"
                      [pageSize]="pageSize"
                      [pageCount]="pageCount">

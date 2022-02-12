@@ -24,7 +24,7 @@ export class SliderComponent implements OnInit {
 
         videos.forEach(video => video.nativeElement.muted = true);
 
-        videos[this._currentSlide]?.nativeElement.play();
+        videos[this._currentSlide].nativeElement.play();
       };
     }, 0);
   }
@@ -43,18 +43,5 @@ export class SliderComponent implements OnInit {
   convertVideos() {
     return this.videos.toArray();
   }
-
-  // to do fix
-  // ngAfterViewInit(): void {
-  //   this.videos.changes.subscribe(_ => {
-  //     if (this.videos.length) {
-  //       const videos = this.convertVideos();
-
-  //       videos.forEach(video => video.nativeElement.muted = true);
-
-  //       videos[this._currentSlide]?.nativeElement.play();
-  //     };
-  //   });
-  // }
 }
 

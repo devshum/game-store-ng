@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   public currentYear = new Date().getFullYear();
+
   constructor() { }
 
-  goToLink(url: string): void {
+  public goToLink(url: string): void {
     window.open(url, '_blank');
   }
 }

@@ -17,7 +17,7 @@ export class DropdownComponent {
     private _router: Router
   ) { }
 
-  sortGames(): void {
+  public sortGames(): void {
     this._router.navigate([], { relativeTo: this._activetedRoute,
                                 skipLocationChange: false,
                                 queryParams: { ordering: this.selectedParamValue,

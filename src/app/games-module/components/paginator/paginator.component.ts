@@ -16,7 +16,7 @@ export class PaginatorComponent {
     private _router: Router
   ) { }
 
-  paginate(event: any) {
+  public paginate(event: any) {
     this.currentPage = event.page + 1;
 
     this._router.navigate([], { relativeTo: this._activetedRoute,

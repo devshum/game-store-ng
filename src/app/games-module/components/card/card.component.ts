@@ -14,7 +14,7 @@ export class CardComponent {
     private _router: Router
   ) { }
 
-  openGameDetails(id: string): void {
+  public openGameDetails(id: string): void {
     this._router.navigate(['details', id]);
   }
 }

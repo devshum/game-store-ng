@@ -1,0 +1,32 @@
+@use '../../../../assets/styles/abstracts/variables' as styles;
+
+.paginator {
+  .p-paginator {
+    background-color: unset;
+
+    &-icon {
+      &::before {
+        font-size: 1.6rem;
+      }
+    }
+
+    .p-paginator-pages {
+      display: grid;
+      grid-auto-flow: column;
+      column-gap: 0.4rem;
+
+      .p-paginator {
+        &-page {
+          transition: styles.$transition-default;
+          color: styles.$white;
+          font-size: 1.6rem;
+          
+          &.p-highlight {
+            color: styles.$gray;
+            background-color: styles.$gray-text;
+          }
+        }
+      }
+    }
+  }
+}

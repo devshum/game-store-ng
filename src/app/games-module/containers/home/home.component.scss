@@ -36,7 +36,16 @@
     grid-gap: 3.2rem;
   }
 
-  &__pagination {
+  &__pagination,
+  &__paginator-skeleton {
     grid-column: 1 / -1;
+  }
+
+  &__paginator-skeleton {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    grid-column-gap: 0.8rem;
+    justify-content: center;
   }
 }

@@ -13,7 +13,8 @@
   cursor: pointer;
   position: relative;
   
-  &:hover {
+  &:hover,
+  &:active {
     .card {
       &__content {
         bottom: 0;

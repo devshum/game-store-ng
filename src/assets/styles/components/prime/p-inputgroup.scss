@@ -19,7 +19,6 @@
 
     &:focus,
     &:hover {
-      box-shadow: unset;
       background: url(../../../img/search-icon-btn--light.png) center no-repeat styles.$gray-dark-40;
     }
   }
@@ -30,10 +29,6 @@
     height: 100%;
     padding: 0 1.6rem;
     border-radius: 0.4rem;
-    
-    &:focus {
-      outline: unset;
-    }
   }
 }
 

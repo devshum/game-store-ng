@@ -15,11 +15,9 @@
   }
 
   &__logo {
-    display: block;
-    width: 15.6rem;
-
-    a:focus {
-      outline: none;
+    img {
+      display: block;
+      width: 15.6rem;
     }
   }
 }

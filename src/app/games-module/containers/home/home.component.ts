@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Game } from 'src/app/core/models/game.interface';
 import { Subject, combineLatest } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
+import { Queries } from 'src/app/core/models/queries.interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -50,15 +51,25 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.selectedParamValue = results.queryParams.ordering || this.selectedParamValue;
 
         if(results.params) {
-          this.searchGames(this.selectedParamValue, this.pageSize, this.currentPage, results.params);
-          this.searchedGameTitle = this.firstToUpper(results.params);
+          this._searchGames({ordering: this.selectedParamValue,
+                            pageSize: this.pageSize,
+                            currentPage: this.currentPage,
+                            search: results.params});
+
+          this.searchedGameTitle = this._firstToUpper(results.params);
         } else {
-          this.searchGames(this.selectedParamValue, this.pageSize, this.currentPage);
+          this._searchGames({ordering: this.selectedParamValue,
+                            pageSize: this.pageSize,
+                            currentPage: this.currentPage });
         }
       });
   }
 
-  searchGames(sort: string, pageSize: number, currentPage: number, search?: string): void {
+  ngOnDestroy(): void {
+    this._unsubscribe.next();
+  }
+
+  private _searchGames(queries: Queries): void {
     this._router.navigate([], { relativeTo: this._activetedRoute,
                                 skipLocationChange: false,
                                 queryParams: { ordering: this.selectedParamValue,
@@ -66,7 +77,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this._loaderService.start();
     this._gamesService
-      .getGames(sort, pageSize, currentPage, search)
+      .getGames(queries)
       .pipe(takeUntil(this._unsubscribe))
       .subscribe(data => {
         this.pageCount = data.count;
@@ -77,11 +88,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    this._unsubscribe.next();
-  }
-
-  firstToUpper(params: string) {
+  private _firstToUpper(params: string) {
     return params.charAt(0).toUpperCase() + params.slice(1);
   }
 }

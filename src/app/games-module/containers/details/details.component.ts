@@ -33,11 +33,15 @@ export class DetailsComponent implements OnInit, OnDestroy {
       this._activatedRoute.params.pipe(takeUntil(this._unsubscribe))
                                                 .subscribe((params: Params) => {
       this._gameId = params.id;
-      this.getGameDetails(this._gameId);
+      this._getGameDetails(this._gameId);
     });
   }
 
-  getGameDetails(id: string): void {
+  ngOnDestroy(): void {
+    this._unsubscribe.next();
+  }
+
+  private _getGameDetails(id: string): void {
     this._loaderService.start();
     this._gamesService.getGameDetails(id)
                       .pipe(takeUntil(this._unsubscribe))
@@ -45,9 +49,5 @@ export class DetailsComponent implements OnInit, OnDestroy {
       this.game = data;
       this._loaderService.end();
     });
-  }
-
-  ngOnDestroy(): void {
-    this._unsubscribe.next();
   }
 }

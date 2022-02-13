@@ -20,7 +20,7 @@ export class SliderComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       if (this.videos.length) {
-        const videos = this.convertVideos();
+        const videos = this._convertVideos();
 
         videos.forEach(video => video.nativeElement.muted = true);
 
@@ -29,8 +29,8 @@ export class SliderComponent implements OnInit {
     }, 0);
   }
 
-  onSlideChange([event]: any): void {
-    const videos = this.convertVideos();
+  public onSlideChange([event]: any): void {
+    const videos = this._convertVideos();
 
     this._currentSlide = event.snapIndex;
 
@@ -40,7 +40,7 @@ export class SliderComponent implements OnInit {
     });
   }
 
-  convertVideos() {
+  private _convertVideos() {
     return this.videos.toArray();
   }
 }

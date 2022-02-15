@@ -1,4 +1,4 @@
-import { Component, Input, QueryList, ViewChildren, OnInit } from '@angular/core';
+import { Component, Input, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
 import { Game } from 'src/app/core/models/game.interface';
 
 @Component({
@@ -6,7 +6,7 @@ import { Game } from 'src/app/core/models/game.interface';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent implements AfterViewInit {
   @ViewChildren('video') videos: QueryList<any>;
   @Input() game: Game;
 
@@ -17,16 +17,14 @@ export class SliderComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      if (this.videos.length) {
-        const videos = this._convertVideos();
+  ngAfterViewInit(): void {
+     if (this.videos.length) {
+      const videos = this._convertVideos();
 
-        videos.forEach(video => video.nativeElement.muted = true);
+      videos.forEach(video => video.nativeElement.muted = true);
 
-        videos[this._currentSlide].nativeElement.play();
-      };
-    }, 0);
+      videos[this._currentSlide].nativeElement.play();
+    };
   }
 
   public onSlideChange([event]: any): void {

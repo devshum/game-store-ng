@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 
@@ -22,5 +22,5 @@ export class DropdownComponent {
                                 skipLocationChange: false,
                                 queryParams: { ordering: this.selectedParamValue,
                                                page: '' } });
-  }
+    }
 }

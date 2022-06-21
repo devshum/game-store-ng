@@ -9,11 +9,11 @@ import { takeUntil } from 'rxjs/operators';
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  selector: 'app-game-details',
+  templateUrl: './game-details.component.html',
+  styleUrls: ['./game-details.component.scss']
 })
-export class DetailsComponent implements OnInit, OnDestroy {
+export class GameDetailsComponent implements OnInit, OnDestroy {
   public game: Game;
   public load = true;
 

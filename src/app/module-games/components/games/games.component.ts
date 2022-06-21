@@ -9,12 +9,12 @@ import { Subject, combineLatest } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
 import { Queries } from 'src/app/core/models/queries.interface';
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-games',
+  templateUrl: './games.component.html',
+  styleUrls: ['./games.component.scss']
 })
 
-export class HomeComponent implements OnInit, OnDestroy {
+export class GamesComponent implements OnInit, OnDestroy {
   public parameters: SelectItem[];
   public selectedParamValue = '-added';
   public games: Game[];

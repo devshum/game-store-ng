@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PaginatorComponent {
   @Input() currentPage: number;
   @Input() pageSize: number;
-  @Input() pageCount: number;
+  @Input() totalGames: number;
 
   constructor(
     private _activetedRoute: ActivatedRoute,

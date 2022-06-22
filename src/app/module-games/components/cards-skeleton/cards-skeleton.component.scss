@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  grid-column: 1 / -1;
+}
+
+.cards-skeleton {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3.2rem;
+}

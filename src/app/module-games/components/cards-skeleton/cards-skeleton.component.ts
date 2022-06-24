@@ -1,15 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cards-skeleton',
   templateUrl: './cards-skeleton.component.html',
   styleUrls: ['./cards-skeleton.component.scss']
 })
-export class CardsSkeletonComponent {
+export class CardsSkeletonComponent implements OnInit {
   @Input() pageSize: number;
 
-  public skeletons = [...Array(20)];
+  public skeletons: string[];
 
-  constructor() { }
-
+  ngOnInit(): void {
+    this.skeletons = [...Array(this.pageSize)];
+  }
 }

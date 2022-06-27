@@ -1,0 +1,250 @@
+@use '../../../assets/styles/abstracts/variables' as styles;
+
+:host {
+  display: block;
+}
+
+.details {
+  position: relative;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+  &__wrapper {
+    background: url(../../../assets/img/background-shadow.png) bottom no-repeat;
+    background-size: contain;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    grid-column: 1 / -1;
+    margin-bottom: 1.6rem;
+  }
+
+  &__name {
+    font-size: 3.2rem;
+    color: styles.$white;
+    font-weight: 500;
+  }
+
+  &__site {
+    &,
+    &:link,
+    &:active {
+      display: inline-block;
+      padding: 0 1.5rem;
+      font-size: 1.5rem;
+      border-radius: 0.2rem;
+      color: styles.$blue !important;
+      background-color: rgba(styles.$blue, 0.2);
+      line-height: 3.7rem;
+      text-decoration: none;
+      transition: styles.$transition-default;
+
+      &:hover,
+      &:active {
+        background-color: rgba(styles.$blue, 0.3);
+      }
+    }
+  }
+
+  &__panel {
+    display: grid;
+    grid-template-columns: 80rem 1fr;
+    grid-gap: 1.6rem;
+
+    background: linear-gradient(to right,  rgba(styles.$black, 0), rgba(styles.$black, 0.3));
+  }
+
+  &__panel-skeleton {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 0.8rem;
+    column-gap: 0.4rem;
+    height: 55rem;
+
+    p-skeleton {
+      &:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  &__panel-bottom {
+    display: grid;
+    grid-template-columns: 80rem 1fr;
+    padding: 1.6rem;
+    background-color: rgba(styles.$black, 0.2);
+    transform: translateY(-0.1rem);
+
+    &.no-content {
+      height: 5.2rem;
+    }
+  }
+
+  &__panel-content {
+    padding: 1.6rem 1.6rem 1.6rem 0;
+  }
+
+  &__image-box {
+    width: 100%;
+    height: 21rem;
+  }
+
+  &__description {
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    color: styles.$gray-light;
+  }
+
+  &__row {
+    margin-bottom: 1.4rem;
+  }
+
+  &__line {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 10%;
+    width: 80%;
+  }
+
+  &__label {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: styles.$gray-dark-55;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    font-size: 1.6rem;
+    margin-left: 0.5rem;
+
+    &--good {
+      color: styles.$blue;
+    }
+
+    &--bad {
+      color: styles.$red;
+    }
+  }
+
+  &__label-color {
+    &--good {
+      color: styles.$blue;
+    }
+
+    &--bad {
+      color: styles.$red;
+    }
+  }
+
+  &__released {
+    color: styles.$gray-text;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__tags-item-skeleton {
+    margin-bottom: 0.4rem;
+
+    &:not(:last-child) {
+      margin-right: 0.4rem;
+    }
+  }
+
+  &__tags-item {
+    background-color: rgba(styles.$blue, 0.2);
+    color: styles.$blue;
+    line-height: 1.9rem;
+    padding: 0.2rem 0.7rem;
+    margin-bottom: 0.4rem;
+    border-radius: 0.2rem;
+
+    &:not(:last-child) {
+      margin-right: 0.4rem;
+    }
+  }
+
+  &__tags-description {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: styles.$gray-dark-55;
+    font-size: 1.4rem;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+
+    color: styles.$white;
+  }
+
+  &__meta-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    width: 5rem;
+    font-size: 2.6rem;
+    margin-right: 1rem;
+
+    &.top {
+      background-color: styles.$green;
+    }
+
+    &.good {
+      background-color: styles.$yellow;
+    }
+
+    &.normal {
+      background-color: styles.$orange;
+    }
+
+    &.bad {
+      background-color: styles.$red;
+    }
+  }
+
+  &__meta-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+  }
+
+  &__meta-label {
+    font-size: 2.6rem;
+    font-weight: 500;
+  }
+
+  &__meta-site {
+    transition: styles.$transition-default;
+    text-decoration: none;
+    color: styles.$white;
+    font-size: 1.4rem;
+  }
+
+  &__meta-link {
+    transform: translateY(-0.5rem);
+    cursor: pointer;
+
+    &:hover a {
+      color: styles.$blue;
+    }
+  }
+
+  &__meta-site-logo {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}

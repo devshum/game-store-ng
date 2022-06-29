@@ -10,14 +10,26 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { GamesComponent } from './components/games/games.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { InlineSVGModule } from 'ng-inline-svg-2';
+import { CardsSkeletonComponent } from './components/cards-skeleton/cards-skeleton.component';
 
+import { PaginationSkeletonComponent } from './components/pagination-skeleton/pagination-skeleton.component';
+import { EffectsModule } from '@ngrx/effects';
+import { GamesEffects } from './store/games/games.effects';
+import { SortingEffects } from './store/sorting/sorting.effects';
+
+import { StoreModule } from '@ngrx/store';
+import * as fromGames from '../module-games/store/games/games.reducer';
+import * as fromPagination from '../module-games/store/pagination/pagination.reducer';
+import * as fromSorting from '../module-games/store/sorting/sorting.reducer';
 
 @NgModule({
   declarations: [
     CardComponent,
     DropdownComponent,
     GamesComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    CardsSkeletonComponent,
+    PaginationSkeletonComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +38,11 @@ import { InlineSVGModule } from 'ng-inline-svg-2';
     SkeletonModule,
     SwiperModule,
     InlineSVGModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    StoreModule.forFeature('gamesResponse', fromGames.gamesReducer),
+    StoreModule.forFeature('pagination', fromPagination.paginationReducer),
+    StoreModule.forFeature('sorting', fromSorting.sortingReducer),
+    EffectsModule.forRoot([GamesEffects, SortingEffects]),
   ]
 })
 export class GamesModule { }

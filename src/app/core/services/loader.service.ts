@@ -5,18 +5,18 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoaderService {
-  private _loading = new BehaviorSubject<boolean | null>(null);
-  constructor() { }
+  // private _loading = new BehaviorSubject<boolean | null>(null);
+  // constructor() { }
 
-  get loadingStatus(): Observable<any> {
-    return this._loading.asObservable();
-  }
+  // get loadingStatus(): Observable<any> {
+  //   return this._loading.asObservable();
+  // }
 
-  start(): void {
-    this._loading.next(true);
-  }
+  // start(): void {
+  //   this._loading.next(true);
+  // }
 
-  end(): void {
-    this._loading.next(false);
-  }
+  // end(): void {
+  //   this._loading.next(false);
+  // }
 }
